@@ -1,0 +1,4 @@
+File=options.kcfg
+ClassName=ColorTranslucencyConfig
+Singleton=true
+Mutators=true

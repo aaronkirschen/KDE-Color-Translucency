@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}",
+                "${workspaceFolder}/**",
+                "/usr/include/qt5",
+                "/usr/include/qt6/QtCore",
+                "/usr/include/qt6",
+                "/usr/include/qt6/QtGui",
+                "/usr/include/KF5/KCoreAddons",
+                "/usr/include/KF5/KConfigCore",
+                "/usr/include/KF5/KWindowSystem",
+                "/usr/include/KF5/KConfigGui",
+                "/usr/include/qt6/QtDBus",
+                "/usr/include/qt5/QtWidgets",
+                "/usr/include/KF5/KConfigWidgets",
+                "/usr/include/KF5/KAuthCore",
+                "/usr/include/KF5/KWidgetsAddons"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-clang-x64"
+        }
+    ],
+    "version": 4
+}

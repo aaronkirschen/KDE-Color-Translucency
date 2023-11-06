@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- /*
+ * Modifications to support color translucency effect.
+ * Copyright (c) 2023 Aaron Kirschen
+ * 
+ * This file is part of Color Translucency Effect.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ */ -->
+
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+                          http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+    <kcfgfile name="kwinrc"/>
+    <group name="Effect-Color-Translucency">
+        <entry name="TargetColor" type="Color">
+            <label>Transparent Color</label>
+        </entry>
+        <entry name="TargetAlpha" type="Int">
+            <label>Transparent Color Alpha</label>
+        </entry>
+        <entry name="Inclusions" type="StringList">
+            <label>Included Windows</label>
+        </entry>
+        <entry name="Exclusions" type="StringList">
+            <label>Excluded Windows</label>
+        </entry>
+    </group>
+</kcfg>

@@ -1,0 +1,5 @@
+/.idea/
+/cmake-build-*/
+/qt5build/
+/build/
+CMakeLists.txt.user

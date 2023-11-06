@@ -1,0 +1,29 @@
+{
+    "KPlugin": {
+        "Authors": [           
+            {
+                "Email": "therealestrob@gmail.com",
+                "Name": "Rob"
+            },
+            {
+                "Email": "matinlotfali@gmail.com",
+                "Name": "Matin Lotfaliei"
+            },
+            {
+                "Email": "aaronkirschen@gmail.com",
+                "Name": "Aaron Kirschen"
+            }
+        ],
+        "Category": "Appearance",
+        "Description": "An effect that makes a specific color in windows translucent.",
+        "EnabledByDefault": false,
+        "Id": "kwin4_effect_colortranslucency",
+        "License": "GPL",
+        "Name": "ColorTranslucency",
+        "ServiceTypes": [
+            "KWin/Effect"
+        ],
+        "Version": "git"
+    },
+    "X-KDE-ConfigModule": "kwin_colortranslucency_config"
+}

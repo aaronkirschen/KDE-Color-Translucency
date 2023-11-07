@@ -2,6 +2,12 @@
 
 This KDE Desktop Effect allows for rendering a specific color as transparent within window contents, for use with software such as overlays.
 
+
+| WITHOUT EFFECT | WITH EFFECT |
+| -------------- | ----------- |
+| ![Without Effect](screenshots/screenshot-without-effect.png) | ![With Effect](screenshots/screenshot-with-effect.png) |
+
+
 ## Description
 
 The Color Translucency Effect is an enhancement for KDE Plasma desktops, enabling the rendering of specific colors as transparent within the contents of a window.

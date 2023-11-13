@@ -3,14 +3,14 @@
  *
  * Modifications to support color translucency effect.
  * Copyright (c) 2023 Aaron Kirschen
- * 
+ *
  * This file is part of Color Translucency Effect.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -50,19 +50,21 @@ public:
 
 public Q_SLOTS:
     QString get_window_titles();
-    
 
 protected Q_SLOTS:
     void windowAdded(KWin::EffectWindow *window);
     void windowRemoved(KWin::EffectWindow *window);
 
 public:
-    QString get_window_title(const KWin::EffectWindow* w) const;
+    QString get_window_title(const KWin::EffectWindow *w) const;
+    static QVector<QColor> getActiveColors();
+    static QVector<int> getActiveAlphas();
 
 private:
-    std::set<const KWin::EffectWindow*> m_managed;
+    std::set<const KWin::EffectWindow *> m_managed;
     ColorTranslucencyShader m_shaderManager;
+    static QVector<QColor> m_activeColors;
+    static QVector<int> m_activeAlphas;
 
     bool hasEffect(const KWin::EffectWindow *w) const;
 };
-

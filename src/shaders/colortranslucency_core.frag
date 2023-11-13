@@ -16,18 +16,28 @@
  */
 
 #version 140
+
+#define MAX_SETS 10 
+
 uniform sampler2D sampler;
-uniform vec4 targetColor;
-uniform float targetAlpha;
+uniform vec4 targetColor[MAX_SETS];
+uniform float targetAlpha[MAX_SETS];  
+uniform int numberOfColors;
 
 in vec2 texcoord0;
-out vec4 fragColor; 
+out vec4 fragColor;
 
 void main() {
-    vec4 tex = texture(sampler, texcoord0);
-    if (tex.rgb == targetColor.rgb) {
-        tex.a = targetAlpha;
+
+  vec4 tex = texture(sampler, texcoord0);
+
+  for(int i = 0; i < numberOfColors; ++i) {
+    if(tex.rgb == targetColor[i].rgb) {
+      tex.a = targetAlpha[i];
+      break;
     }
-    tex.rgb *= tex.a; // Multiply the color by the alpha
-    fragColor = tex;
+  }
+
+  tex.rgb *= tex.a;
+  fragColor = tex;
 }

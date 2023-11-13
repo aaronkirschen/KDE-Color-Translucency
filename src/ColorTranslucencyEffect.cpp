@@ -3,14 +3,14 @@
  *
  * Modifications to support color translucency effect.
  * Copyright (c) 2023 Aaron Kirschen
- * 
+ *
  * This file is part of Color Translucency Effect.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -22,12 +22,14 @@
 #include <QtDBus/QDBusConnection>
 #include <QDBusError>
 
-
 #if KWIN_EFFECT_API_VERSION >= 235
 #include <KX11Extras>
 #else
 #include <kwindowsystem.h>
 #endif
+
+QVector<QColor> ColorTranslucencyEffect::m_activeColors;
+QVector<int> ColorTranslucencyEffect::m_activeAlphas;
 
 ColorTranslucencyEffect::ColorTranslucencyEffect()
 #if KWIN_EFFECT_API_VERSION >= 236
@@ -36,6 +38,7 @@ ColorTranslucencyEffect::ColorTranslucencyEffect()
     : KWin::DeformEffect()
 #endif
 {
+
     reconfigure(ReconfigureAll);
 
     auto connection = QDBusConnection::sessionBus();
@@ -77,9 +80,7 @@ ColorTranslucencyEffect::~ColorTranslucencyEffect() = default;
 
 void ColorTranslucencyEffect::windowAdded(KWin::EffectWindow *w)
 {
-    qDebug() << w->windowRole() << w->windowType() << w->windowClass();
     auto name = w->windowClass();
-    qDebug() << "Window Added: " << name;
     auto r = m_managed.insert(w);
     if (r.second)
     {
@@ -94,14 +95,119 @@ void ColorTranslucencyEffect::windowRemoved(KWin::EffectWindow *w)
     unredirect(w);
 }
 
+QVector<QColor> activeTargetColors()
+{
+    QVector<QColor> colors;
+
+    if (ColorTranslucencyConfig::enableColor_1())
+    {
+        colors.push_back(ColorTranslucencyConfig::targetColor_1());
+    }
+    if (ColorTranslucencyConfig::enableColor_2())
+    {
+        colors.push_back(ColorTranslucencyConfig::targetColor_2());
+    }
+    if (ColorTranslucencyConfig::enableColor_3())
+    {
+        colors.push_back(ColorTranslucencyConfig::targetColor_3());
+    }
+    if (ColorTranslucencyConfig::enableColor_4())
+    {
+        colors.push_back(ColorTranslucencyConfig::targetColor_4());
+    }
+    if (ColorTranslucencyConfig::enableColor_5())
+    {
+        colors.push_back(ColorTranslucencyConfig::targetColor_5());
+    }
+    if (ColorTranslucencyConfig::enableColor_6())
+    {
+        colors.push_back(ColorTranslucencyConfig::targetColor_6());
+    }
+    if (ColorTranslucencyConfig::enableColor_7())
+    {
+        colors.push_back(ColorTranslucencyConfig::targetColor_7());
+    }
+    if (ColorTranslucencyConfig::enableColor_8())
+    {
+        colors.push_back(ColorTranslucencyConfig::targetColor_8());
+    }
+    if (ColorTranslucencyConfig::enableColor_9())
+    {
+        colors.push_back(ColorTranslucencyConfig::targetColor_9());
+    }
+    if (ColorTranslucencyConfig::enableColor_10())
+    {
+        colors.push_back(ColorTranslucencyConfig::targetColor_10());
+    }
+
+    return colors;
+}
+
+QVector<int> activeTargetAlphas()
+{
+    QVector<int> alphas;
+
+    if (ColorTranslucencyConfig::enableColor_1())
+    {
+        alphas.push_back(ColorTranslucencyConfig::targetAlpha_1());
+    }
+    if (ColorTranslucencyConfig::enableColor_2())
+    {
+        alphas.push_back(ColorTranslucencyConfig::targetAlpha_2());
+    }
+    if (ColorTranslucencyConfig::enableColor_3())
+    {
+        alphas.push_back(ColorTranslucencyConfig::targetAlpha_3());
+    }
+    if (ColorTranslucencyConfig::enableColor_4())
+    {
+        alphas.push_back(ColorTranslucencyConfig::targetAlpha_4());
+    }
+    if (ColorTranslucencyConfig::enableColor_5())
+    {
+        alphas.push_back(ColorTranslucencyConfig::targetAlpha_5());
+    }
+    if (ColorTranslucencyConfig::enableColor_6())
+    {
+        alphas.push_back(ColorTranslucencyConfig::targetAlpha_6());
+    }
+    if (ColorTranslucencyConfig::enableColor_7())
+    {
+        alphas.push_back(ColorTranslucencyConfig::targetAlpha_7());
+    }
+    if (ColorTranslucencyConfig::enableColor_8())
+    {
+        alphas.push_back(ColorTranslucencyConfig::targetAlpha_8());
+    }
+    if (ColorTranslucencyConfig::enableColor_9())
+    {
+        alphas.push_back(ColorTranslucencyConfig::targetAlpha_9());
+    }
+    if (ColorTranslucencyConfig::enableColor_10())
+    {
+        alphas.push_back(ColorTranslucencyConfig::targetAlpha_10());
+    }
+
+    return alphas;
+}
+
+QVector<QColor> ColorTranslucencyEffect::getActiveColors() {
+  return m_activeColors; 
+}
+
+
+QVector<int> ColorTranslucencyEffect::getActiveAlphas() {
+  return m_activeAlphas; 
+}
+
+
 void ColorTranslucencyEffect::reconfigure(ReconfigureFlags flags)
 {
-    qDebug() << "ColorTranslucencyEffect::reconfigure - Reconfiguring effect";
-    QColor targetColor = ColorTranslucencyConfig::targetColor();
-    qDebug() << "ColorTranslucencyEffect::reconfigure - TargetColor:" << targetColor;
-            
     Q_UNUSED(flags)
     ColorTranslucencyConfig::self()->read();
+
+    m_activeColors = activeTargetColors();
+    m_activeAlphas = activeTargetAlphas();
 }
 
 bool ColorTranslucencyEffect::isMaximized(const KWin::EffectWindow *w)
@@ -187,62 +293,48 @@ QString ColorTranslucencyEffect::get_window_title(const KWin::EffectWindow *w) c
     auto fullClass = w->windowClass();
     QString windowRole = w->windowRole();
 
-    // qDebug() << "ColorTranslucency::get_window_title: windowRole=" << windowRole;
-
-    // qDebug() << "ColorTranslucency::get_window_title: fullClass=" << fullClass;
-
     QStringList parts = fullClass.split(' ');
-    // qDebug() << "ColorTranslucency::get_window_title: parts=" << parts;
 
     QString windowTitle;
     if (parts.size() > 1 && parts[0] == parts[1])
     {
-        windowTitle = parts[0]; // Use just one part if both are the same
-        // qDebug() << "ColorTranslucency::get_window_title: parts the same; windowTitle=" << windowTitle;
+        windowTitle = parts[0];
     }
     else
     {
-        windowTitle = fullClass; // Use the full string otherwise
-        // qDebug() << "ColorTranslucency::get_window_title: parts different; windowTitle=" << windowTitle;
-
+        windowTitle = fullClass;
     }
-    return windowTitle; // Just return first part
+    return windowTitle;
 }
 
 bool ColorTranslucencyEffect::hasEffect(const KWin::EffectWindow *w) const
 {
 
-    if (!m_shaderManager.IsValid()) {
-        // qDebug() << "ColorTranslucency::hasEffect: m_shaderManager is not valid, so skipping match.";
+    if (!m_shaderManager.IsValid())
+    {
         return false;
     }
 
-    QStringList inclusions = ColorTranslucencyConfig::inclusions();
-    QStringList exclusions = ColorTranslucencyConfig::exclusions();
+    QStringList inclusions = ColorTranslucencyConfig::inclusionList();
+    QStringList exclusions = ColorTranslucencyConfig::exclusionList();
 
     QString windowTitle = get_window_title(w);
 
-    // qDebug() << "ColorTranslucency::hasEffect: Checking window with windowTitle=" << windowTitle;
-
-    if (!m_managed.contains(w)) {
-        // qDebug() << "ColorTranslucency::hasEffect: Excluding window (not in m_managed):" << windowTitle;
+    if (!m_managed.contains(w))
+    {
         return false;
-    } 
+    }
 
     if (inclusions.contains(windowTitle, Qt::CaseInsensitive))
     {
-        // qDebug() << "ColorTranslucency::hasEffect: Including window (on inclusion list):" << windowTitle;
         return true;
     }
 
     if (exclusions.contains(windowTitle, Qt::CaseInsensitive))
     {
-        // qDebug() << "ColorTranslucency::hasEffect: Excluding window (on exclusion list):" << windowTitle;
         return false;
     }
-    // qDebug() << "colorTranslucency::hasEffect: Excluding window (no checks returned true):" << windowTitle;
     return false;
-    
 }
 
 QString ColorTranslucencyEffect::get_window_titles()

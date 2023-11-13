@@ -18,16 +18,26 @@
 precision mediump float;
 
 uniform sampler2D sampler;
-uniform vec4 targetColor;
-uniform float targetAlpha;
+
+#define MAX_SETS 10 // Maximum of 10 colors
+uniform vec4 targetColor[MAX_SETS];
+uniform float targetAlpha[MAX_SETS];  
+uniform int numberOfColors;
 
 varying vec2 texcoord0;
 
 void main() {
+
     vec4 tex = texture2D(sampler, texcoord0);
-    if(tex.rgb == targetColor.rgb) {
-        tex.a = targetAlpha;
+
+    for(int i = 0; i < numberOfColors; ++i) {
+
+        if(tex.rgb == targetColor[i].rgb) {
+            tex.a = targetAlpha[i]; // Set the alpha to the matched target alpha
+            break; // Exit the loop early since we found a match
+        }
     }
-    tex.rgb *= tex.a; // Multiply the color by the alpha
-    gl_FragColor = tex;
+
+    tex.rgb *= tex.a; // Premultiply color by alpha
+    gl_FragColor = tex; // Set the final color of the pixel
 }

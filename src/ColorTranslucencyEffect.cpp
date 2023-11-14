@@ -38,7 +38,7 @@ ColorTranslucencyEffect::ColorTranslucencyEffect()
     : KWin::DeformEffect()
 #endif
 {
-
+    qDebug() << "ColorTranslucencyEffect::ColorTranslucencyEffect: effect created";
     reconfigure(ReconfigureAll);
 
     auto connection = QDBusConnection::sessionBus();
@@ -81,6 +81,7 @@ ColorTranslucencyEffect::~ColorTranslucencyEffect() = default;
 void ColorTranslucencyEffect::windowAdded(KWin::EffectWindow *w)
 {
     auto name = w->windowClass();
+    qDebug() << "ColorTranslucencyEffect::windowAdded: " << name;
     auto r = m_managed.insert(w);
     if (r.second)
     {
@@ -91,6 +92,7 @@ void ColorTranslucencyEffect::windowAdded(KWin::EffectWindow *w)
 
 void ColorTranslucencyEffect::windowRemoved(KWin::EffectWindow *w)
 {
+    qDebug() << "ColorTranslucencyEffect::windowRemoved: " << w->windowClass();
     m_managed.erase(w);
     unredirect(w);
 }
@@ -191,15 +193,15 @@ QVector<int> activeTargetAlphas()
     return alphas;
 }
 
-QVector<QColor> ColorTranslucencyEffect::getActiveColors() {
-  return m_activeColors; 
+QVector<QColor> ColorTranslucencyEffect::getActiveColors()
+{
+    return m_activeColors;
 }
 
-
-QVector<int> ColorTranslucencyEffect::getActiveAlphas() {
-  return m_activeAlphas; 
+QVector<int> ColorTranslucencyEffect::getActiveAlphas()
+{
+    return m_activeAlphas;
 }
-
 
 void ColorTranslucencyEffect::reconfigure(ReconfigureFlags flags)
 {
@@ -208,6 +210,9 @@ void ColorTranslucencyEffect::reconfigure(ReconfigureFlags flags)
 
     m_activeColors = activeTargetColors();
     m_activeAlphas = activeTargetAlphas();
+    qDebug() << "ColorTranslucencyEffect::reconfigure: config reloaded,";
+    qDebug() << "ColorTranslucencyEffect::reconfigure: m_activeColors: " << m_activeColors;
+    qDebug() << "ColorTranslucencyEffect::reconfigure: m_activeAlphas: " << m_activeAlphas;
 }
 
 bool ColorTranslucencyEffect::isMaximized(const KWin::EffectWindow *w)
@@ -291,7 +296,6 @@ void ColorTranslucencyEffect::drawWindow(KWin::EffectWindow *w, int mask, const 
 QString ColorTranslucencyEffect::get_window_title(const KWin::EffectWindow *w) const
 {
     auto fullClass = w->windowClass();
-    QString windowRole = w->windowRole();
 
     QStringList parts = fullClass.split(' ');
 
@@ -319,7 +323,6 @@ bool ColorTranslucencyEffect::hasEffect(const KWin::EffectWindow *w) const
     QStringList exclusions = ColorTranslucencyConfig::exclusionList();
 
     QString windowTitle = get_window_title(w);
-
     if (!m_managed.contains(w))
     {
         return false;
@@ -349,5 +352,8 @@ QString ColorTranslucencyEffect::get_window_titles()
 
         response.insert(windowTitle);
     }
+    qDebug() << "ColorTranslucencyEffect::get_window_titles: found" << response.size() << " window titles,";
+    qDebug() << "ColorTranslucencyEffect::get_window_titles: window titles:" << response.values().join("\n");
+
     return response.values().join("\n");
 }

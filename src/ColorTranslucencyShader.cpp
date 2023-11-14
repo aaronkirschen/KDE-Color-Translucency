@@ -53,9 +53,13 @@ ColorTranslucencyShader::ColorTranslucencyShader() : m_manager(KWin::ShaderManag
 
                 QString alphaName = "targetAlpha[" + QString::number(i) + "]";
                 m_shader_targetAlpha_locations[i] = m_shader->uniformLocation(alphaName.toStdString().c_str());
+                qDebug() << "ColorTranslucencyShader::ColorTranslucencyShader: fragment shader m_shader_targetColor_locations: " << m_shader_targetColor_locations;
+                qDebug() << "ColorTranslucencyShader::ColorTranslucencyShader: fragment shader m_shader_targetAlpha_locations: " << m_shader_targetAlpha_locations;
             }
 
             m_shader_numberOfColors_location = m_shader->uniformLocation("numberOfColors");
+            qDebug() << "ColorTranslucencyShader::ColorTranslucencyShader: shader created";
+            qDebug() << "ColorTranslucencyShader::ColorTranslucencyShader: fragment shader path: " << fragmentshader;
         }
         else
             qCritical() << "ColorTranslucencyShader::ColorTranslucencyShader: no valid shaders found! ColorTranslucency will not work.";
@@ -102,4 +106,5 @@ ColorTranslucencyShader::Bind(KWin::EffectWindow *) const
 void ColorTranslucencyShader::Unbind() const
 {
     m_manager->popShader();
+    qDebug() << "ColorTranslucencyShader::Unbind: unbinding shader";
 }

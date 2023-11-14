@@ -27,6 +27,7 @@
 ColorTranslucencyKCM::ColorTranslucencyKCM(QWidget *parent, const QVariantList &args)
     : KCModule(parent, args), ui(new Ui::Form)
 {
+  qDebug() << "ColorTranslucencyKCM::ColorTranslucencyKCM: KCM created";
   ui->setupUi(this);
 
   addConfig(ColorTranslucencyConfig::self(), this);
@@ -69,7 +70,6 @@ ColorTranslucencyKCM::ColorTranslucencyKCM(QWidget *parent, const QVariantList &
           { ui->ExclusionList->takeItem(ui->ExclusionList->currentRow()); });
 }
 
-
 ColorTranslucencyKCM::~ColorTranslucencyKCM()
 {
   delete ui;
@@ -77,6 +77,7 @@ ColorTranslucencyKCM::~ColorTranslucencyKCM()
 
 void ColorTranslucencyKCM::updateColor(int index)
 {
+  qDebug() << "ColorTranslucencyKCM::updateColor" << index;
   if (index < 1 || index > 10)
   {
     qDebug() << "Invalid index for updateColor: " << index;
@@ -122,17 +123,21 @@ void ColorTranslucencyKCM::updateWindows()
       QDBusReply<QString> reply = interface.call("get_window_titles");
       if (reply.isValid())
         windowList = reply.value().split("\n");
+      qInfo() << "ColorTranslucencyKCM::updateWindows: windowList:" << windowList;
     }
   }
 
   for (const auto &w : windowList)
     if (!w.isEmpty())
+    {
       ui->currentWindowList->addItem(w);
+      qInfo() << "ColorTranslucencyKCM::updateWindows: adding window:" << w;
+    }
 }
 
 void ColorTranslucencyKCM::save()
 {
-
+  qDebug() << "ColorTranslucencyKCM::save: saving config";
   QStringList inclusions, exclusions;
   for (int i = 0; i < ui->InclusionList->count(); ++i)
     inclusions.push_back(ui->InclusionList->item(i)->text());
@@ -155,10 +160,12 @@ void ColorTranslucencyKCM::load()
   ColorTranslucencyConfig::self()->load();
   ui->InclusionList->addItems(ColorTranslucencyConfig::inclusionList());
   ui->ExclusionList->addItems(ColorTranslucencyConfig::exclusionList());
+  qDebug() << "ColorTranslucencyKCM::load: loading config, inclusions:" << ColorTranslucencyConfig::inclusionList() << ", exclusions: " << ColorTranslucencyConfig::exclusionList();
 }
 
 void ColorTranslucencyKCM::defaults()
 {
+  qDebug() << "ColorTranslucencyKCM::defaults: reset to defaults";
   KCModule::defaults();
   ColorTranslucencyConfig::self()->setDefaults();
 

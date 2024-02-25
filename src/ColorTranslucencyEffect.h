@@ -37,7 +37,7 @@ public:
     ColorTranslucencyEffect();
     ~ColorTranslucencyEffect() override;
 
-    static bool supported();prePaintWindow
+    static bool supported();
     static bool enabledByDefault() { return supported(); }
     static bool isWindowActive(const KWin::EffectWindow *w) { return KWin::effects->activeWindow() == w; }
 

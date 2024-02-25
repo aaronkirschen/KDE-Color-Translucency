@@ -17,7 +17,6 @@
         "Category": "Appearance",
         "Description": "An effect that makes a specific color in windows translucent.",
         "EnabledByDefault": false,
-        "Id": "kwin4_effect_colortranslucency",
         "License": "GPL",
         "Name": "ColorTranslucency",
         "ServiceTypes": [

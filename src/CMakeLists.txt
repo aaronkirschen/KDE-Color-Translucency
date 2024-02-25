@@ -7,23 +7,24 @@ set(effect_SRCS
 )
 
 kconfig_add_kcfg_files(effect_SRCS ColorTranslucencyConfig.kcfgc)
-add_library(kwin4_effect_colortranslucency SHARED ${effect_SRCS})
+kcoreaddons_add_plugin(kwin4_effect_colortranslucency SOURCES ${effect_SRCS} INSTALL_NAMESPACE "kwin/effects/plugins/")
 
 target_link_libraries(kwin4_effect_colortranslucency
-    Qt5::Core
-    Qt5::Gui
-    Qt5::DBus
-    KWinEffects::kwineffects
-    KWinEffects::kwinglutils
-    epoxy::epoxy
-    KF5::ConfigCore
-    KF5::ConfigGui
-    KF5::CoreAddons
-    KF5::WindowSystem
+        Qt${QT_MAJOR_VERSION}::DBus
+        KF${QT_MAJOR_VERSION}::ConfigGui
 )
 
-install(TARGETS kwin4_effect_colortranslucency DESTINATION ${PLUGIN_INSTALL_DIR}/kwin/effects/plugins/)
 
-execute_process(COMMAND kf5-config --install data OUTPUT_VARIABLE DATAPATH OUTPUT_STRIP_TRAILING_WHITESPACE)
-install(FILES shaders/colortranslucency.frag DESTINATION ${DATAPATH}/kwin/shaders/)
-install(FILES shaders/colortranslucency_core.frag DESTINATION ${DATAPATH}/kwin/shaders/)
+if(${QT_MAJOR_VERSION} EQUAL 6)
+    target_link_libraries(kwin4_effect_colortranslucency
+            KWin::kwin
+            Qt${QT_MAJOR_VERSION}::CorePrivate
+    )
+else()
+    target_link_libraries(kwin4_effect_colortranslucency
+            KWinEffects::kwineffects
+            KWinEffects::kwinglutils
+    )
+endif()
+
+install(DIRECTORY shaders DESTINATION ${KDE_INSTALL_DATADIR}/kwin)

@@ -15,22 +15,29 @@
  * (at your option) any later version.
  */
 
-#include <QDialog>
-#include <QList>
 
-#include <kwineffects.h>
-#include "kwineffects_interface.h"
 #include "ColorTranslucencyKCM.h"
+#include "ui_ColorTranslucencyKCM.h"
 
-#include <QDBusConnection>
+#include "kwineffects_interface.h"
+#include <QDialog>
 
-ColorTranslucencyKCM::ColorTranslucencyKCM(QWidget *parent, const QVariantList &args)
-    : KCModule(parent, args), ui(new Ui::Form)
+
+#if (QT_VERSION_MAJOR >= 6)
+ColorTranslucencyKCM::ColorTranslucencyKCM(QObject* parent, const KPluginMetaData& args)
+    : KCModule(parent, args)
+    , ui(new Ui::Form)
 {
-  qDebug() << "ColorTranslucencyKCM::ColorTranslucencyKCM: KCM created";
-  ui->setupUi(this);
-
-  addConfig(ColorTranslucencyConfig::self(), this);
+    ui->setupUi(widget());
+    addConfig(ColorTranslucencyConfig::self(), widget());
+#else
+ColorTranslucencyKCM::ColorTranslucencyKCM(QWidget* parent, const QVariantList& args)
+    : KCModule(parent, args)
+    , ui(new Ui::Form)
+{
+    ui->setupUi(this);
+    addConfig(ColorTranslucencyConfig::self(), this);
+#endif
 
   connect(ui->kcfg_TargetColor_1, &KColorButton::changed, this, [this]()
           { updateColor(1); });
@@ -70,17 +77,12 @@ ColorTranslucencyKCM::ColorTranslucencyKCM(QWidget *parent, const QVariantList &
           { ui->ExclusionList->takeItem(ui->ExclusionList->currentRow()); });
 }
 
-ColorTranslucencyKCM::~ColorTranslucencyKCM()
-{
-  delete ui;
-}
-
 void ColorTranslucencyKCM::updateColor(int index)
 {
-  qDebug() << "ColorTranslucencyKCM::updateColor" << index;
+  qInfo() << "ColorTranslucencyKCM::updateColor" << index;
   if (index < 1 || index > 10)
   {
-    qDebug() << "Invalid index for updateColor: " << index;
+    qInfo() << "Invalid index for updateColor: " << index;
     return;
   }
 
@@ -100,11 +102,11 @@ void ColorTranslucencyKCM::updateColor(int index)
   }
   else
   {
-    qDebug() << "Widgets not found for index: " << index;
+    qInfo() << "Widgets not found for index: " << index;
     if (!colorWidget)
-      qDebug() << "Color widget not found: " << colorWidgetName;
+      qInfo() << "Color widget not found: " << colorWidgetName;
     if (!alphaWidget)
-      qDebug() << "Alpha widget not found: " << alphaWidgetName;
+      qInfo() << "Alpha widget not found: " << alphaWidgetName;
   }
 }
 
@@ -137,7 +139,7 @@ void ColorTranslucencyKCM::updateWindows()
 
 void ColorTranslucencyKCM::save()
 {
-  qDebug() << "ColorTranslucencyKCM::save: saving config";
+  qInfo() << "ColorTranslucencyKCM::save: saving config";
   QStringList inclusions, exclusions;
   for (int i = 0; i < ui->InclusionList->count(); ++i)
     inclusions.push_back(ui->InclusionList->item(i)->text());
@@ -160,12 +162,12 @@ void ColorTranslucencyKCM::load()
   ColorTranslucencyConfig::self()->load();
   ui->InclusionList->addItems(ColorTranslucencyConfig::inclusionList());
   ui->ExclusionList->addItems(ColorTranslucencyConfig::exclusionList());
-  qDebug() << "ColorTranslucencyKCM::load: loading config, inclusions:" << ColorTranslucencyConfig::inclusionList() << ", exclusions: " << ColorTranslucencyConfig::exclusionList();
+  qInfo() << "ColorTranslucencyKCM::load: loading config, inclusions:" << ColorTranslucencyConfig::inclusionList() << ", exclusions: " << ColorTranslucencyConfig::exclusionList();
 }
 
 void ColorTranslucencyKCM::defaults()
 {
-  qDebug() << "ColorTranslucencyKCM::defaults: reset to defaults";
+  qInfo() << "ColorTranslucencyKCM::defaults: reset to defaults";
   KCModule::defaults();
   ColorTranslucencyConfig::self()->setDefaults();
 

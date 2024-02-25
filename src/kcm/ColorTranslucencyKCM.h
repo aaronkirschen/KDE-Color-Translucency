@@ -28,8 +28,11 @@ class ColorTranslucencyKCM : public KCModule
 {
     Q_OBJECT
 public:
-    explicit ColorTranslucencyKCM(QWidget *parent = nullptr, const QVariantList &args = QVariantList());
-    ~ColorTranslucencyKCM() override;
+#if (QT_VERSION_MAJOR >= 6)
+    explicit ColorTranslucencyKCM(QObject* parent, const KPluginMetaData& args);
+#else
+    explicit ColorTranslucencyKCM(QWidget* parent = nullptr, const QVariantList& args = QVariantList());
+#endif
 
 public slots:
     void defaults() override;

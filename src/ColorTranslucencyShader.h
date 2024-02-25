@@ -18,18 +18,19 @@
 #ifndef KWIN4_COLORTRANSLUCENCY_CONFIG_SHADERMANAGER_H
 #define KWIN4_COLORTRANSLUCENCY_CONFIG_SHADERMANAGER_H
 
-#include <kwinglutils.h>
-#include <memory>
-#include <QPalette>
-#include "ColorTranslucencyConfig.h"
+#include <qconfig.h>
+#if QT_VERSION_MAJOR >= 6
+    #include <effect/effect.h>
+#else
+    #include <kwineffects.h>
+#endif
 
-const int MAX_SETS = 10;
-
-namespace KWin
-{
+namespace KWin {
     class GLShader;
     class ShaderManager;
 }
+
+const int MAX_SETS = 10;
 
 class ColorTranslucencyShader
 {
@@ -45,8 +46,13 @@ public:
 private:
     std::unique_ptr<KWin::GLShader> m_shader;
     KWin::ShaderManager *m_manager;
-    QPalette m_palette;
 
+    /**
+     * \brief Used only for its `palette()` function which holds the currently active highlight colors.
+     */
+    std::shared_ptr<QWidget> m_widget;
+
+    
     int m_shader_targetColor_locations[MAX_SETS];
     int m_shader_targetAlpha_locations[MAX_SETS];
     int m_shader_numberOfColors_location;

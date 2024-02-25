@@ -37,9 +37,8 @@ public:
     ColorTranslucencyEffect();
     ~ColorTranslucencyEffect() override;
 
-    static bool supported();
+    static bool supported();prePaintWindow
     static bool enabledByDefault() { return supported(); }
-    static bool isMaximized(const KWin::EffectWindow *w);
     static bool isWindowActive(const KWin::EffectWindow *w) { return KWin::effects->activeWindow() == w; }
 
     void reconfigure(ReconfigureFlags flags) override;

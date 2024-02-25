@@ -218,17 +218,7 @@ void ColorTranslucencyEffect::reconfigure(ReconfigureFlags flags)
 
 }
 
-bool ColorTranslucencyEffect::isMaximized(const KWin::EffectWindow *w)
-{
-    auto screenGeometry = KWin::effects->findScreen(w->screen()->name())->geometry();
-    return (w->x() == screenGeometry.x() && w->width() == screenGeometry.width()) ||
-           (w->y() == screenGeometry.y() && w->height() == screenGeometry.height());
-}
 
-QRectF operator*(QRect r, qreal scale) { return {r.x() * scale, r.y() * scale, r.width() * scale, r.height() * scale}; }
-QRectF operator*(QRectF r, qreal scale) { return {r.x() * scale, r.y() * scale, r.width() * scale, r.height() * scale}; }
-QRect toRect(const QRectF &r) { return {(int)r.x(), (int)r.y(), (int)r.width(), (int)r.height()}; }
-const QRect &toRect(const QRect &r) { return r; }
 
 void ColorTranslucencyEffect::prePaintWindow(KWin::EffectWindow *w, KWin::WindowPrePaintData &data, std::chrono::milliseconds time)
 {
@@ -240,7 +230,7 @@ void ColorTranslucencyEffect::prePaintWindow(KWin::EffectWindow *w, KWin::Window
     }
 
     data.setTranslucent();
-    
+
     OffscreenEffect::prePaintWindow(w, data, time);    
 }
 

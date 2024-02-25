@@ -70,7 +70,8 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "qdbusconnection": "cpp",
-        "qelapsedtimer": "cpp"
+        "qelapsedtimer": "cpp",
+        "ranges": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

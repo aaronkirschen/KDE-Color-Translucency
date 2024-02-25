@@ -239,24 +239,8 @@ void ColorTranslucencyEffect::prePaintWindow(KWin::EffectWindow *w, KWin::Window
         return;
     }
 
-#if QT_VERSION_MAJOR >= 6
-    const auto geo = w->frameGeometry() * w->screen()->scale();
     data.setTranslucent();
-#else
-    const auto geo = w->frameGeometry() * KWin::effects->renderTargetScale();
-    data.setTranslucent();
-#endif
-
-
-    QRegion reg{};
-    reg -= toRect(geo);
-    reg += QRect(geo.x(), geo.y(), 0, 0);
-    reg += QRect(geo.x() + geo.width(), geo.y(), 0, 0);
-    reg += QRect(geo.x(), geo.y() + geo.height(), 0, 0);
-    reg += QRect(geo.x() + geo.width(), geo.y() + geo.height(), 0, 0);
-    data.opaque -= reg;
-    data.paint += reg;
-
+    
     OffscreenEffect::prePaintWindow(w, data, time);    
 }
 

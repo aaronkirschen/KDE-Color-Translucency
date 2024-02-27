@@ -20,6 +20,9 @@
  * (at your option) any later version.
  */
 
+#ifndef COLORTRANSLUCENCYKCM_H
+#define COLORTRANSLUCENCYKCM_H
+
 #include <kcmodule.h>
 #include "ui_ColorTranslucencyKCM.h"
 #include "ColorTranslucencyConfig.h"
@@ -38,31 +41,18 @@ public slots:
     void defaults() override;
     void load() override;
     void save() override;
-    void updateColor(int);
+    void updateColor(const QColor& color);
     void updateWindows();  
+
+private slots:
+    void includeButtonClicked();
+    void excludeButtonClicked();
+    void deleteIncludeButtonClicked();
+    void deleteExcludeButtonClicked();
+    
 
 private:
     Ui::Form *ui;
-
-    QColor m_color1;
-    QColor m_color2;
-    QColor m_color3;
-    QColor m_color4;
-    QColor m_color5;
-    QColor m_color6;
-    QColor m_color7;
-    QColor m_color8;
-    QColor m_color9;
-    QColor m_color10;
-
-    int m_alpha1;
-    int m_alpha2;
-    int m_alpha3;
-    int m_alpha4;
-    int m_alpha5;
-    int m_alpha6;
-    int m_alpha7;
-    int m_alpha8;
-    int m_alpha9;
-    int m_alpha10;
 };
+
+#endif // COLORTRANSLUCENCYKCM_H

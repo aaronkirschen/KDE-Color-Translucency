@@ -37,25 +37,25 @@ ColorTranslucencyKCM::ColorTranslucencyKCM(QWidget *parent,
 #endif
 
   connect(ui->kcfg_TargetColor_1, &KColorButton::changed, this,
-          [this]() { updateColor(1); });
+          &ColorTranslucencyKCM::updateColor);
   connect(ui->kcfg_TargetColor_2, &KColorButton::changed, this,
-          [this]() { updateColor(2); });
+          &ColorTranslucencyKCM::updateColor);
   connect(ui->kcfg_TargetColor_3, &KColorButton::changed, this,
-          [this]() { updateColor(3); });
+          &ColorTranslucencyKCM::updateColor);
   connect(ui->kcfg_TargetColor_4, &KColorButton::changed, this,
-          [this]() { updateColor(4); });
+          &ColorTranslucencyKCM::updateColor);
   connect(ui->kcfg_TargetColor_5, &KColorButton::changed, this,
-          [this]() { updateColor(5); });
+          &ColorTranslucencyKCM::updateColor);
   connect(ui->kcfg_TargetColor_6, &KColorButton::changed, this,
-          [this]() { updateColor(6); });
+          &ColorTranslucencyKCM::updateColor);
   connect(ui->kcfg_TargetColor_7, &KColorButton::changed, this,
-          [this]() { updateColor(7); });
+          &ColorTranslucencyKCM::updateColor);
   connect(ui->kcfg_TargetColor_8, &KColorButton::changed, this,
-          [this]() { updateColor(8); });
+          &ColorTranslucencyKCM::updateColor);
   connect(ui->kcfg_TargetColor_9, &KColorButton::changed, this,
-          [this]() { updateColor(9); });
+          &ColorTranslucencyKCM::updateColor);
   connect(ui->kcfg_TargetColor_10, &KColorButton::changed, this,
-          [this]() { updateColor(10); });
+          &ColorTranslucencyKCM::updateColor);
 
   // the gradient selector is not marking as changed, so I am manually
   // connecting it to markAsChanged
@@ -83,73 +83,77 @@ ColorTranslucencyKCM::ColorTranslucencyKCM(QWidget *parent,
   connect(ui->refreshButton, &QPushButton::pressed, this,
           &ColorTranslucencyKCM::updateWindows);
 
-  // It may be cleaner to have slots for these, like includeButtonClicked,
-  // excludeButtonClicked, deleteIncludeClicked, deleteExcludeClicked the
-  // inclusion/exclusion lists are not marking as changed, so I am manually
-  // connecting it to markAsChanged
-
-  connect(ui->includeButton, &QPushButton::pressed, [=, this]() {
-    auto s = ui->currentWindowList->currentItem();
-    if (s &&
-        ui->InclusionList->findItems(s->text(), Qt::MatchExactly).empty()) {
-      ui->InclusionList->addItem(s->text());
-      markAsChanged();
-    }
-  });
-
-  connect(ui->excludeButton, &QPushButton::pressed, [=, this]() {
-    auto s = ui->currentWindowList->currentItem();
-    if (s &&
-        ui->ExclusionList->findItems(s->text(), Qt::MatchExactly).empty()) {
-      ui->ExclusionList->addItem(s->text());
-      markAsChanged();
-    }
-  });
-
-  connect(ui->deleteIncludeButton, &QPushButton::pressed, [=, this]() {
-    int row = ui->InclusionList->currentRow();
-    if (row >= 0) {
-      delete ui->InclusionList->takeItem(row);
-      markAsChanged();
-    }
-  });
-  connect(ui->deleteExcludeButton, &QPushButton::pressed, [=, this]() {
-    int row = ui->ExclusionList->currentRow();
-    if (row >= 0) {
-      delete ui->ExclusionList->takeItem(row);
-      markAsChanged();
-    }
-  });
+  connect(ui->includeButton, &QPushButton::pressed, this,
+          &ColorTranslucencyKCM::includeButtonClicked);
+  connect(ui->excludeButton, &QPushButton::pressed, this,
+          &ColorTranslucencyKCM::excludeButtonClicked);
+  connect(ui->deleteIncludeButton, &QPushButton::pressed, this,
+          &ColorTranslucencyKCM::deleteIncludeButtonClicked);
+  connect(ui->deleteExcludeButton, &QPushButton::pressed, this,
+          &ColorTranslucencyKCM::deleteExcludeButtonClicked);
 }
 
-void ColorTranslucencyKCM::updateColor(int index) {
-  qInfo() << "ColorTranslucencyKCM::updateColor" << index;
-  if (index < 1 || index > 10) {
-    qInfo() << "Invalid index for updateColor: " << index;
-    return;
-  }
 
-  // Construct the widget names based on the index
-  QString colorWidgetName = QString("kcfg_TargetColor_%1").arg(index);
-  QString alphaWidgetName = QString("kcfg_TargetAlpha_%1").arg(index);
 
-  // Find the widgets by name
-  KColorButton *colorWidget = findChild<KColorButton *>(colorWidgetName);
-  KGradientSelector *alphaWidget =
-      findChild<KGradientSelector *>(alphaWidgetName);
-
-  // Perform the necessary operations if the widgets are found
-  if (colorWidget && alphaWidget) {
-    QColor color = colorWidget->color();
-    alphaWidget->setSecondColor(color);
-  } else {
-    qInfo() << "Widgets not found for index: " << index;
-    if (!colorWidget)
-      qInfo() << "Color widget not found: " << colorWidgetName;
-    if (!alphaWidget)
-      qInfo() << "Alpha widget not found: " << alphaWidgetName;
+void ColorTranslucencyKCM::includeButtonClicked() {
+  auto s = ui->currentWindowList->currentItem();
+  if (s &&
+      ui->InclusionList->findItems(s->text(), Qt::MatchExactly).empty()) {
+    ui->InclusionList->addItem(s->text());
+    markAsChanged();
   }
 }
+
+
+
+void ColorTranslucencyKCM::excludeButtonClicked() {
+  auto s = ui->currentWindowList->currentItem();
+  if (s &&
+      ui->ExclusionList->findItems(s->text(), Qt::MatchExactly).empty()) {
+    ui->ExclusionList->addItem(s->text());
+    markAsChanged();
+  }
+}
+
+void ColorTranslucencyKCM::deleteIncludeButtonClicked() {
+  int row = ui->InclusionList->currentRow();
+  if (row >= 0) {
+    delete ui->InclusionList->takeItem(row);
+    markAsChanged();
+  }
+}
+
+void ColorTranslucencyKCM::deleteExcludeButtonClicked() {
+  int row = ui->ExclusionList->currentRow();
+  if (row >= 0) {
+    delete ui->ExclusionList->takeItem(row);
+    markAsChanged();
+  }
+}
+
+void ColorTranslucencyKCM::updateColor(const QColor &color) {
+  // Assumes KColorButton and KGradientSelector widgets follow naming convention:
+  //   kcfg_TargetColor_<index>
+  //   kcfg_TargetAlpha_<index>
+    KColorButton* senderButton = qobject_cast<KColorButton*>(sender());
+    if (!senderButton) {
+        qWarning() << "Sender is not a KColorButton";
+        return;
+    }
+
+    QString senderName = senderButton->objectName();
+    int index = senderName.mid(senderName.lastIndexOf('_') + 1).toInt();
+
+    QString alphaWidgetName = QString("kcfg_TargetAlpha_%1").arg(index);
+    KGradientSelector* alphaWidget = ui->tab_1->findChild<KGradientSelector*>(alphaWidgetName);
+
+    if (alphaWidget) {
+        alphaWidget->setSecondColor(color);
+    } else {
+        qWarning() << "Alpha widget" << alphaWidgetName << "not found for index:" << index;
+    }
+}
+
 
 void ColorTranslucencyKCM::updateWindows() {
 

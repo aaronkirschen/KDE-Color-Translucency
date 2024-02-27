@@ -71,7 +71,9 @@
         "typeinfo": "cpp",
         "qdbusconnection": "cpp",
         "qelapsedtimer": "cpp",
-        "ranges": "cpp"
+        "ranges": "cpp",
+        "qlistwidgetitem": "cpp",
+        "qwidget": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

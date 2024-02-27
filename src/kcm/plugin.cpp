@@ -17,7 +17,6 @@
 
 #include "ColorTranslucencyKCM.h"
 
-// KF5
 #include <KPluginFactory>
 
 K_PLUGIN_FACTORY_WITH_JSON(ColorTranslucencyConfigFactory,

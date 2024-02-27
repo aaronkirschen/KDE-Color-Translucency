@@ -15,73 +15,116 @@
  * (at your option) any later version.
  */
 
-
 #include "ColorTranslucencyKCM.h"
 #include "ui_ColorTranslucencyKCM.h"
 
 #include "kwineffects_interface.h"
 #include <QDialog>
-
+#include <QListWidgetItem>
 
 #if (QT_VERSION_MAJOR >= 6)
-ColorTranslucencyKCM::ColorTranslucencyKCM(QObject* parent, const KPluginMetaData& args)
-    : KCModule(parent, args)
-    , ui(new Ui::Form)
-{
-    ui->setupUi(widget());
-    addConfig(ColorTranslucencyConfig::self(), widget());
+ColorTranslucencyKCM::ColorTranslucencyKCM(QObject *parent,
+                                           const KPluginMetaData &args)
+    : KCModule(parent, args), ui(new Ui::Form) {
+  ui->setupUi(widget());
+  addConfig(ColorTranslucencyConfig::self(), widget());
 #else
-ColorTranslucencyKCM::ColorTranslucencyKCM(QWidget* parent, const QVariantList& args)
-    : KCModule(parent, args)
-    , ui(new Ui::Form)
-{
-    ui->setupUi(this);
-    addConfig(ColorTranslucencyConfig::self(), this);
+ColorTranslucencyKCM::ColorTranslucencyKCM(QWidget *parent,
+                                           const QVariantList &args)
+    : KCModule(parent, args), ui(new Ui::Form) {
+  ui->setupUi(this);
+  addConfig(ColorTranslucencyConfig::self(), this);
 #endif
 
-  connect(ui->kcfg_TargetColor_1, &KColorButton::changed, this, [this]()
-          { updateColor(1); });
-  connect(ui->kcfg_TargetColor_2, &KColorButton::changed, this, [this]()
-          { updateColor(2); });
-  connect(ui->kcfg_TargetColor_3, &KColorButton::changed, this, [this]()
-          { updateColor(3); });
-  connect(ui->kcfg_TargetColor_4, &KColorButton::changed, this, [this]()
-          { updateColor(4); });
-  connect(ui->kcfg_TargetColor_5, &KColorButton::changed, this, [this]()
-          { updateColor(5); });
-  connect(ui->kcfg_TargetColor_6, &KColorButton::changed, this, [this]()
-          { updateColor(6); });
-  connect(ui->kcfg_TargetColor_7, &KColorButton::changed, this, [this]()
-          { updateColor(7); });
-  connect(ui->kcfg_TargetColor_8, &KColorButton::changed, this, [this]()
-          { updateColor(8); });
-  connect(ui->kcfg_TargetColor_9, &KColorButton::changed, this, [this]()
-          { updateColor(9); });
-  connect(ui->kcfg_TargetColor_10, &KColorButton::changed, this, [this]()
-          { updateColor(10); });
+  connect(ui->kcfg_TargetColor_1, &KColorButton::changed, this,
+          [this]() { updateColor(1); });
+  connect(ui->kcfg_TargetColor_2, &KColorButton::changed, this,
+          [this]() { updateColor(2); });
+  connect(ui->kcfg_TargetColor_3, &KColorButton::changed, this,
+          [this]() { updateColor(3); });
+  connect(ui->kcfg_TargetColor_4, &KColorButton::changed, this,
+          [this]() { updateColor(4); });
+  connect(ui->kcfg_TargetColor_5, &KColorButton::changed, this,
+          [this]() { updateColor(5); });
+  connect(ui->kcfg_TargetColor_6, &KColorButton::changed, this,
+          [this]() { updateColor(6); });
+  connect(ui->kcfg_TargetColor_7, &KColorButton::changed, this,
+          [this]() { updateColor(7); });
+  connect(ui->kcfg_TargetColor_8, &KColorButton::changed, this,
+          [this]() { updateColor(8); });
+  connect(ui->kcfg_TargetColor_9, &KColorButton::changed, this,
+          [this]() { updateColor(9); });
+  connect(ui->kcfg_TargetColor_10, &KColorButton::changed, this,
+          [this]() { updateColor(10); });
 
-  connect(ui->refreshButton, &QPushButton::pressed, this, &ColorTranslucencyKCM::updateWindows);
-  connect(ui->includeButton, &QPushButton::pressed, [=, this]()
-          {
-        auto s = ui->currentWindowList->currentItem();
-        if (s && ui->InclusionList->findItems(s->text(), Qt::MatchExactly).empty())
-            ui->InclusionList->addItem(s->text()); });
-  connect(ui->excludeButton, &QPushButton::pressed, [=, this]()
-          {
-        auto s = ui->currentWindowList->currentItem();
-        if (s && ui->ExclusionList->findItems(s->text(), Qt::MatchExactly).empty())
-            ui->ExclusionList->addItem(s->text()); });
-  connect(ui->deleteIncludeButton, &QPushButton::pressed, [=, this]()
-          { ui->InclusionList->takeItem(ui->InclusionList->currentRow()); });
-  connect(ui->deleteExcludeButton, &QPushButton::pressed, [=, this]()
-          { ui->ExclusionList->takeItem(ui->ExclusionList->currentRow()); });
+  // the gradient selector is not marking as changed, so I am manually
+  // connecting it to markAsChanged
+  connect(ui->kcfg_TargetAlpha_1, &KGradientSelector::valueChanged, this,
+          &ColorTranslucencyKCM::markAsChanged);
+  connect(ui->kcfg_TargetAlpha_2, &KGradientSelector::valueChanged, this,
+          &ColorTranslucencyKCM::markAsChanged);
+  connect(ui->kcfg_TargetAlpha_3, &KGradientSelector::valueChanged, this,
+          &ColorTranslucencyKCM::markAsChanged);
+  connect(ui->kcfg_TargetAlpha_4, &KGradientSelector::valueChanged, this,
+          &ColorTranslucencyKCM::markAsChanged);
+  connect(ui->kcfg_TargetAlpha_5, &KGradientSelector::valueChanged, this,
+          &ColorTranslucencyKCM::markAsChanged);
+  connect(ui->kcfg_TargetAlpha_6, &KGradientSelector::valueChanged, this,
+          &ColorTranslucencyKCM::markAsChanged);
+  connect(ui->kcfg_TargetAlpha_7, &KGradientSelector::valueChanged, this,
+          &ColorTranslucencyKCM::markAsChanged);
+  connect(ui->kcfg_TargetAlpha_8, &KGradientSelector::valueChanged, this,
+          &ColorTranslucencyKCM::markAsChanged);
+  connect(ui->kcfg_TargetAlpha_9, &KGradientSelector::valueChanged, this,
+          &ColorTranslucencyKCM::markAsChanged);
+  connect(ui->kcfg_TargetAlpha_10, &KGradientSelector::valueChanged, this,
+          &ColorTranslucencyKCM::markAsChanged);
+
+  connect(ui->refreshButton, &QPushButton::pressed, this,
+          &ColorTranslucencyKCM::updateWindows);
+
+  // It may be cleaner to have slots for these, like includeButtonClicked,
+  // excludeButtonClicked, deleteIncludeClicked, deleteExcludeClicked the
+  // inclusion/exclusion lists are not marking as changed, so I am manually
+  // connecting it to markAsChanged
+
+  connect(ui->includeButton, &QPushButton::pressed, [=, this]() {
+    auto s = ui->currentWindowList->currentItem();
+    if (s &&
+        ui->InclusionList->findItems(s->text(), Qt::MatchExactly).empty()) {
+      ui->InclusionList->addItem(s->text());
+      markAsChanged();
+    }
+  });
+
+  connect(ui->excludeButton, &QPushButton::pressed, [=, this]() {
+    auto s = ui->currentWindowList->currentItem();
+    if (s &&
+        ui->ExclusionList->findItems(s->text(), Qt::MatchExactly).empty()) {
+      ui->ExclusionList->addItem(s->text());
+      markAsChanged();
+    }
+  });
+
+  connect(ui->deleteIncludeButton, &QPushButton::pressed, [=, this]() {
+    int row = ui->InclusionList->currentRow();
+    if (row >= 0) {
+      delete ui->InclusionList->takeItem(row);
+      markAsChanged();
+    }
+  });
+  connect(ui->deleteExcludeButton, &QPushButton::pressed, [=, this]() {
+    int row = ui->ExclusionList->currentRow();
+    if (row >= 0) {
+      delete ui->ExclusionList->takeItem(row);
+      markAsChanged();
+    }
+  });
 }
 
-void ColorTranslucencyKCM::updateColor(int index)
-{
+void ColorTranslucencyKCM::updateColor(int index) {
   qInfo() << "ColorTranslucencyKCM::updateColor" << index;
-  if (index < 1 || index > 10)
-  {
+  if (index < 1 || index > 10) {
     qInfo() << "Invalid index for updateColor: " << index;
     return;
   }
@@ -92,16 +135,14 @@ void ColorTranslucencyKCM::updateColor(int index)
 
   // Find the widgets by name
   KColorButton *colorWidget = findChild<KColorButton *>(colorWidgetName);
-  KGradientSelector *alphaWidget = findChild<KGradientSelector *>(alphaWidgetName);
+  KGradientSelector *alphaWidget =
+      findChild<KGradientSelector *>(alphaWidgetName);
 
   // Perform the necessary operations if the widgets are found
-  if (colorWidget && alphaWidget)
-  {
+  if (colorWidget && alphaWidget) {
     QColor color = colorWidget->color();
     alphaWidget->setSecondColor(color);
-  }
-  else
-  {
+  } else {
     qInfo() << "Widgets not found for index: " << index;
     if (!colorWidget)
       qInfo() << "Color widget not found: " << colorWidgetName;
@@ -110,35 +151,32 @@ void ColorTranslucencyKCM::updateColor(int index)
   }
 }
 
-void ColorTranslucencyKCM::updateWindows()
-{
+void ColorTranslucencyKCM::updateWindows() {
 
   QList<QString> windowList;
   ui->currentWindowList->clear();
 
   auto connection = QDBusConnection::sessionBus();
-  if (connection.isConnected())
-  {
-    QDBusInterface interface("org.kde.ColorTranslucency", "/ColorTranslucencyEffect");
-    if (interface.isValid())
-    {
+  if (connection.isConnected()) {
+    QDBusInterface interface("org.kde.ColorTranslucency",
+                             "/ColorTranslucencyEffect");
+    if (interface.isValid()) {
       QDBusReply<QString> reply = interface.call("get_window_titles");
       if (reply.isValid())
         windowList = reply.value().split("\n");
-      qInfo() << "ColorTranslucencyKCM::updateWindows: windowList:" << windowList;
+      qInfo() << "ColorTranslucencyKCM::updateWindows: windowList:"
+              << windowList;
     }
   }
 
   for (const auto &w : windowList)
-    if (!w.isEmpty())
-    {
+    if (!w.isEmpty()) {
       ui->currentWindowList->addItem(w);
       qInfo() << "ColorTranslucencyKCM::updateWindows: adding window:" << w;
     }
 }
 
-void ColorTranslucencyKCM::save()
-{
+void ColorTranslucencyKCM::save() {
   qInfo() << "ColorTranslucencyKCM::save: saving config";
   QStringList inclusions, exclusions;
   for (int i = 0; i < ui->InclusionList->count(); ++i)
@@ -156,17 +194,17 @@ void ColorTranslucencyKCM::save()
   interface.reconfigureEffect(QStringLiteral("kwin4_effect_colortranslucency"));
 }
 
-void ColorTranslucencyKCM::load()
-{
+void ColorTranslucencyKCM::load() {
   KCModule::load();
   ColorTranslucencyConfig::self()->load();
   ui->InclusionList->addItems(ColorTranslucencyConfig::inclusionList());
   ui->ExclusionList->addItems(ColorTranslucencyConfig::exclusionList());
-  qInfo() << "ColorTranslucencyKCM::load: loading config, inclusions:" << ColorTranslucencyConfig::inclusionList() << ", exclusions: " << ColorTranslucencyConfig::exclusionList();
+  qInfo() << "ColorTranslucencyKCM::load: loading config, inclusions:"
+          << ColorTranslucencyConfig::inclusionList()
+          << ", exclusions: " << ColorTranslucencyConfig::exclusionList();
 }
 
-void ColorTranslucencyKCM::defaults()
-{
+void ColorTranslucencyKCM::defaults() {
   qInfo() << "ColorTranslucencyKCM::defaults: reset to defaults";
   KCModule::defaults();
   ColorTranslucencyConfig::self()->setDefaults();

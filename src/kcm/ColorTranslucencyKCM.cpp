@@ -136,6 +136,7 @@ void ColorTranslucencyKCM::updateColor(const QColor &color) {
   // convention:
   //   kcfg_TargetColor_<index>
   //   kcfg_TargetAlpha_<index>
+  // where index starts at 1.
   KColorButton *senderButton = qobject_cast<KColorButton *>(sender());
   if (!senderButton) {
     qWarning() << "Sender is not a KColorButton";

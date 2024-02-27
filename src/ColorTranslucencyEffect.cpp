@@ -2,7 +2,7 @@
  * Copyright © 2015 Robert Metsäranta <therealestrob@gmail.com>
  *
  * Modifications to support color translucency effect.
- * Copyright (c) 2023 Aaron Kirschen
+ * Copyright (c) 2024 Aaron Kirschen
  *
  * This file is part of Color Translucency Effect.
  *

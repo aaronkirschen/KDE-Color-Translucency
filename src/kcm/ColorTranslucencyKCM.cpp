@@ -91,6 +91,12 @@ ColorTranslucencyKCM::ColorTranslucencyKCM(QWidget *parent,
           &ColorTranslucencyKCM::deleteIncludeButtonClicked);
   connect(ui->deleteExcludeButton, &QPushButton::pressed, this,
           &ColorTranslucencyKCM::deleteExcludeButtonClicked);
+
+  // Update the window list every 1 second
+  windowListUpdateTimer = new QTimer(this);
+  connect(windowListUpdateTimer, &QTimer::timeout, this,
+          &ColorTranslucencyKCM::updateWindows);
+  windowListUpdateTimer->start(1000);
 }
 
 void ColorTranslucencyKCM::includeButtonClicked() {
@@ -153,9 +159,18 @@ void ColorTranslucencyKCM::updateColor(const QColor &color) {
 
 void ColorTranslucencyKCM::updateWindows() {
 
-  QList<QString> windowList;
+  // Save currently selected item
+  QListWidgetItem *currentlySelectedItem = ui->currentWindowList->currentItem();
+  QString currentlySelectedText;
+  if (currentlySelectedItem) {
+    currentlySelectedText = currentlySelectedItem->text();
+  }
+
+  // Clear the list
   ui->currentWindowList->clear();
 
+  // Get window list
+  QList<QString> windowList;
   auto connection = QDBusConnection::sessionBus();
   if (connection.isConnected()) {
     QDBusInterface interface("org.kde.ColorTranslucency",
@@ -169,11 +184,19 @@ void ColorTranslucencyKCM::updateWindows() {
     }
   }
 
-  for (const auto &w : windowList)
+  // Update window list
+  for (const auto &w : windowList) {
     if (!w.isEmpty()) {
-      ui->currentWindowList->addItem(w);
+      QListWidgetItem *item = new QListWidgetItem(w);
+      ui->currentWindowList->addItem(item);
       qInfo() << "ColorTranslucencyKCM::updateWindows: adding window:" << w;
+
+      // Reselect the previously selected item if it exists in the new list
+      if (w == currentlySelectedText) {
+        ui->currentWindowList->setCurrentItem(item);
+      }
     }
+  }
 }
 
 void ColorTranslucencyKCM::save() {
@@ -202,6 +225,7 @@ void ColorTranslucencyKCM::load() {
   qInfo() << "ColorTranslucencyKCM::load: loading config, inclusions:"
           << ColorTranslucencyConfig::inclusionList()
           << ", exclusions: " << ColorTranslucencyConfig::exclusionList();
+  updateWindows();
 }
 
 void ColorTranslucencyKCM::defaults() {

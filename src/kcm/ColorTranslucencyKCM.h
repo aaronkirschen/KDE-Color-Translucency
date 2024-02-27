@@ -52,6 +52,7 @@ private slots:
 
 private:
   Ui::Form *ui;
+  QTimer *windowListUpdateTimer;
 };
 
 #endif // COLORTRANSLUCENCYKCM_H

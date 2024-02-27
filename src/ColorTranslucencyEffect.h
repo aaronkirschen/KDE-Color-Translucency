@@ -23,55 +23,60 @@
 #include <set>
 
 #if QT_VERSION_MAJOR >= 6
-    #include <effect/effecthandler.h>
-    #include <effect/offscreeneffect.h>
+#include <effect/effecthandler.h>
+#include <effect/offscreeneffect.h>
 #else
-    #include <kwineffects.h>
-    #include <kwinoffscreeneffect.h>
+#include <kwineffects.h>
+#include <kwinoffscreeneffect.h>
 #endif
 
-class ColorTranslucencyEffect final : public KWin::OffscreenEffect
-{
-    Q_OBJECT
+class ColorTranslucencyEffect final : public KWin::OffscreenEffect {
+  Q_OBJECT
 public:
-    ColorTranslucencyEffect();
-    ~ColorTranslucencyEffect() override;
+  ColorTranslucencyEffect();
+  ~ColorTranslucencyEffect() override;
 
-    static bool supported();
-    static bool enabledByDefault() { return supported(); }
-    static bool isWindowActive(const KWin::EffectWindow *w) { return KWin::effects->activeWindow() == w; }
+  static bool supported();
+  static bool enabledByDefault() { return supported(); }
+  static bool isWindowActive(const KWin::EffectWindow *w) {
+    return KWin::effects->activeWindow() == w;
+  }
 
-    void reconfigure(ReconfigureFlags flags) override;
+  void reconfigure(ReconfigureFlags flags) override;
 
-    void prePaintWindow(KWin::EffectWindow *w, KWin::WindowPrePaintData &data, std::chrono::milliseconds time) override;
+  void prePaintWindow(KWin::EffectWindow *w, KWin::WindowPrePaintData &data,
+                      std::chrono::milliseconds time) override;
 
 #if QT_VERSION_MAJOR >= 6
-    void drawWindow(const KWin::RenderTarget &RenderTarget, const KWin::RenderViewport& viewport,
-                    KWin::EffectWindow *w, int mask, const QRegion &region, KWin::WindowPaintData &data) override;
+  void drawWindow(const KWin::RenderTarget &RenderTarget,
+                  const KWin::RenderViewport &viewport, KWin::EffectWindow *w,
+                  int mask, const QRegion &region,
+                  KWin::WindowPaintData &data) override;
 #else
-    void drawWindow(KWin::EffectWindow *w, int mask, const QRegion &region, KWin::WindowPaintData &data) override;
+  void drawWindow(KWin::EffectWindow *w, int mask, const QRegion &region,
+                  KWin::WindowPaintData &data) override;
 #endif
 
-    [[nodiscard]] int requestedEffectChainPosition() const override { return 99; }
-    [[nodiscard]] bool blocksDirectScanout() const override { return false; }
+  [[nodiscard]] int requestedEffectChainPosition() const override { return 99; }
+  [[nodiscard]] bool blocksDirectScanout() const override { return false; }
 
 public Q_SLOTS:
-    [[nodiscard]] QString get_window_titles() const;
+  [[nodiscard]] QString get_window_titles() const;
 
 protected Q_SLOTS:
-    void windowAdded(KWin::EffectWindow *window);
-    void windowRemoved(KWin::EffectWindow *window);
+  void windowAdded(KWin::EffectWindow *window);
+  void windowRemoved(KWin::EffectWindow *window);
 
 public:
-    QString get_window_title(const KWin::EffectWindow *w) const;
-    static QVector<QColor> getActiveColors();
-    static QVector<int> getActiveAlphas();
+  QString get_window_title(const KWin::EffectWindow *w) const;
+  static QVector<QColor> getActiveColors();
+  static QVector<int> getActiveAlphas();
 
 private:
-    std::set<const KWin::EffectWindow *> m_managed;
-    ColorTranslucencyShader m_shaderManager;
-    static QVector<QColor> m_activeColors;
-    static QVector<int> m_activeAlphas;
+  std::set<const KWin::EffectWindow *> m_managed;
+  ColorTranslucencyShader m_shaderManager;
+  static QVector<QColor> m_activeColors;
+  static QVector<int> m_activeAlphas;
 
-    bool hasEffect(const KWin::EffectWindow *w) const;
+  bool hasEffect(const KWin::EffectWindow *w) const;
 };

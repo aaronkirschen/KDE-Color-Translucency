@@ -1,1060 +1,1060 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
-  <property name="enabled">
-   <bool>true</bool>
-  </property>
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>700</width>
-    <height>700</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Form</string>
-  </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
-    <widget class="QTabWidget" name="tabWidget">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="currentIndex">
-      <number>0</number>
-     </property>
-     <widget class="QWidget" name="tab_1">
-      <attribute name="title">
-       <string>Properties</string>
-      </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
-         <property name="spacing">
-          <number>5</number>
-         </property>
-         <property name="sizeConstraint">
-          <enum>QLayout::SetDefaultConstraint</enum>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
-         <item>
-          <widget class="QScrollArea" name="scrollArea">
-           <property name="widgetResizable">
+    <class>Form</class>
+    <widget class="QWidget" name="Form">
+        <property name="enabled">
             <bool>true</bool>
-           </property>
-           <widget class="QWidget" name="scrollAreaWidgetContents_1">
-            <property name="geometry">
-             <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>641</width>
-              <height>1056</height>
-             </rect>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_4">
-             <item>
-              <widget class="QGroupBox" name="colorConfig_1">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_2">
-                <item>
-                 <widget class="QCheckBox" name="kcfg_EnableColor_1">
-                  <property name="text">
-                   <string>Enable Color 1</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QGroupBox" name="colorAlphaGroup_1">
-                  <property name="enabled">
-                   <bool>true</bool>
-                  </property>
-                  <layout class="QFormLayout" name="colorAlphaPairLayout">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="colorLabel_1">
-                     <property name="text">
-                      <string>Color 1:</string>
-                     </property>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>700</width>
+                <height>700</height>
+            </rect>
+        </property>
+        <property name="windowTitle">
+            <string>Form</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+                <widget class="QTabWidget" name="tabWidget">
+                    <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="currentIndex">
+                        <number>0</number>
+                    </property>
+                    <widget class="QWidget" name="tab_1">
+                        <attribute name="title">
+                            <string>Properties</string>
+                        </attribute>
+                        <layout class="QVBoxLayout" name="verticalLayout_3">
+                            <item>
+                                <layout class="QVBoxLayout" name="verticalLayout_2">
+                                    <property name="spacing">
+                                        <number>5</number>
+                                    </property>
+                                    <property name="sizeConstraint">
+                                        <enum>QLayout::SetDefaultConstraint</enum>
+                                    </property>
+                                    <property name="rightMargin">
+                                        <number>0</number>
+                                    </property>
+                                    <property name="bottomMargin">
+                                        <number>0</number>
+                                    </property>
+                                    <item>
+                                        <widget class="QScrollArea" name="scrollArea">
+                                            <property name="widgetResizable">
+                                                <bool>true</bool>
+                                            </property>
+                                            <widget class="QWidget" name="scrollAreaWidgetContents_1">
+                                                <property name="geometry">
+                                                    <rect>
+                                                        <x>0</x>
+                                                        <y>0</y>
+                                                        <width>641</width>
+                                                        <height>1056</height>
+                                                    </rect>
+                                                </property>
+                                                <layout class="QVBoxLayout" name="verticalLayout_4">
+                                                    <item>
+                                                        <widget class="QGroupBox" name="colorConfig_1">
+                                                            <property name="sizePolicy">
+                                                                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                                                                    <horstretch>0</horstretch>
+                                                                    <verstretch>0</verstretch>
+                                                                </sizepolicy>
+                                                            </property>
+                                                            <layout class="QHBoxLayout" name="horizontalLayout_2">
+                                                                <item>
+                                                                    <widget class="QCheckBox" name="kcfg_EnableColor_1">
+                                                                        <property name="text">
+                                                                            <string>Enable Color 1</string>
+                                                                        </property>
+                                                                    </widget>
+                                                                </item>
+                                                                <item>
+                                                                    <widget class="QGroupBox" name="colorAlphaGroup_1">
+                                                                        <property name="enabled">
+                                                                            <bool>true</bool>
+                                                                        </property>
+                                                                        <layout class="QFormLayout" name="colorAlphaPairLayout">
+                                                                            <item row="0" column="0">
+                                                                                <widget class="QLabel" name="colorLabel_1">
+                                                                                    <property name="text">
+                                                                                        <string>Color 1:</string>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="1" column="0">
+                                                                                <widget class="QLabel" name="alphaLabel_1">
+                                                                                    <property name="text">
+                                                                                        <string>Alpha 1:</string>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="1" column="1">
+                                                                                <widget class="KGradientSelector" name="kcfg_TargetAlpha_1">
+                                                                                    <property name="sizePolicy">
+                                                                                        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                                                                                            <horstretch>0</horstretch>
+                                                                                            <verstretch>0</verstretch>
+                                                                                        </sizepolicy>
+                                                                                    </property>
+                                                                                    <property name="minimumSize">
+                                                                                        <size>
+                                                                                            <width>30</width>
+                                                                                            <height>30</height>
+                                                                                        </size>
+                                                                                    </property>
+                                                                                    <property name="maximumSize">
+                                                                                        <size>
+                                                                                            <width>16777215</width>
+                                                                                            <height>30</height>
+                                                                                        </size>
+                                                                                    </property>
+                                                                                    <property name="value">
+                                                                                        <number>99</number>
+                                                                                    </property>
+                                                                                    <property name="maxValue" stdset="0">
+                                                                                        <number>255</number>
+                                                                                    </property>
+                                                                                    <property name="indent">
+                                                                                        <bool>true</bool>
+                                                                                    </property>
+                                                                                    <property name="arrowDirection">
+                                                                                        <enum>Qt::UpArrow</enum>
+                                                                                    </property>
+                                                                                    <property name="firstColor">
+                                                                                        <color alpha="0">
+                                                                                            <red>0</red>
+                                                                                            <green>0</green>
+                                                                                            <blue>0</blue>
+                                                                                        </color>
+                                                                                    </property>
+                                                                                    <property name="secondColor">
+                                                                                        <color>
+                                                                                            <red>0</red>
+                                                                                            <green>0</green>
+                                                                                            <blue>0</blue>
+                                                                                        </color>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="0" column="1">
+                                                                                <widget class="KColorButton" name="kcfg_TargetColor_1"/>
+                                                                            </item>
+                                                                        </layout>
+                                                                    </widget>
+                                                                </item>
+                                                            </layout>
+                                                        </widget>
+                                                    </item>
+                                                    <item>
+                                                        <widget class="QGroupBox" name="colorConfig_2">
+                                                            <property name="enabled">
+                                                                <bool>true</bool>
+                                                            </property>
+                                                            <layout class="QHBoxLayout" name="horizontalLayout_3">
+                                                                <item>
+                                                                    <widget class="QCheckBox" name="kcfg_EnableColor_2">
+                                                                        <property name="text">
+                                                                            <string>Enable Color 2</string>
+                                                                        </property>
+                                                                    </widget>
+                                                                </item>
+                                                                <item>
+                                                                    <widget class="QGroupBox" name="colorAlphaGroup_2">
+                                                                        <layout class="QFormLayout" name="colorAlphaPairLayout_2">
+                                                                            <item row="0" column="0">
+                                                                                <widget class="QLabel" name="colorLabel_2">
+                                                                                    <property name="text">
+                                                                                        <string>Color 2:</string>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="0" column="1">
+                                                                                <widget class="KColorButton" name="kcfg_TargetColor_2"/>
+                                                                            </item>
+                                                                            <item row="1" column="0">
+                                                                                <widget class="QLabel" name="alphaLabel_2">
+                                                                                    <property name="text">
+                                                                                        <string>Alpha 2:</string>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="1" column="1">
+                                                                                <widget class="KGradientSelector" name="kcfg_TargetAlpha_2">
+                                                                                    <property name="sizePolicy">
+                                                                                        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                                                                                            <horstretch>0</horstretch>
+                                                                                            <verstretch>0</verstretch>
+                                                                                        </sizepolicy>
+                                                                                    </property>
+                                                                                    <property name="minimumSize">
+                                                                                        <size>
+                                                                                            <width>30</width>
+                                                                                            <height>30</height>
+                                                                                        </size>
+                                                                                    </property>
+                                                                                    <property name="maximumSize">
+                                                                                        <size>
+                                                                                            <width>16777215</width>
+                                                                                            <height>30</height>
+                                                                                        </size>
+                                                                                    </property>
+                                                                                    <property name="value">
+                                                                                        <number>99</number>
+                                                                                    </property>
+                                                                                    <property name="maxValue" stdset="0">
+                                                                                        <number>255</number>
+                                                                                    </property>
+                                                                                    <property name="indent">
+                                                                                        <bool>true</bool>
+                                                                                    </property>
+                                                                                    <property name="arrowDirection">
+                                                                                        <enum>Qt::UpArrow</enum>
+                                                                                    </property>
+                                                                                    <property name="firstColor">
+                                                                                        <color alpha="0">
+                                                                                            <red>0</red>
+                                                                                            <green>0</green>
+                                                                                            <blue>0</blue>
+                                                                                        </color>
+                                                                                    </property>
+                                                                                    <property name="secondColor">
+                                                                                        <color>
+                                                                                            <red>0</red>
+                                                                                            <green>0</green>
+                                                                                            <blue>0</blue>
+                                                                                        </color>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                        </layout>
+                                                                    </widget>
+                                                                </item>
+                                                            </layout>
+                                                        </widget>
+                                                    </item>
+                                                    <item>
+                                                        <widget class="QGroupBox" name="colorConfig_3">
+                                                            <layout class="QHBoxLayout" name="horizontalLayout_4">
+                                                                <item>
+                                                                    <widget class="QCheckBox" name="kcfg_EnableColor_3">
+                                                                        <property name="text">
+                                                                            <string>Enable Color 3</string>
+                                                                        </property>
+                                                                    </widget>
+                                                                </item>
+                                                                <item>
+                                                                    <widget class="QGroupBox" name="colorAlphaGroup_3">
+                                                                        <layout class="QFormLayout" name="colorAlphaPairLayout_3">
+                                                                            <item row="0" column="0">
+                                                                                <widget class="QLabel" name="colorLabel_3">
+                                                                                    <property name="text">
+                                                                                        <string>Color 3:</string>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="1" column="0">
+                                                                                <widget class="QLabel" name="alphaLabel_3">
+                                                                                    <property name="text">
+                                                                                        <string>Alpha 3:</string>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="1" column="1">
+                                                                                <widget class="KGradientSelector" name="kcfg_TargetAlpha_3">
+                                                                                    <property name="sizePolicy">
+                                                                                        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                                                                                            <horstretch>0</horstretch>
+                                                                                            <verstretch>0</verstretch>
+                                                                                        </sizepolicy>
+                                                                                    </property>
+                                                                                    <property name="minimumSize">
+                                                                                        <size>
+                                                                                            <width>30</width>
+                                                                                            <height>30</height>
+                                                                                        </size>
+                                                                                    </property>
+                                                                                    <property name="maximumSize">
+                                                                                        <size>
+                                                                                            <width>16777215</width>
+                                                                                            <height>30</height>
+                                                                                        </size>
+                                                                                    </property>
+                                                                                    <property name="value">
+                                                                                        <number>99</number>
+                                                                                    </property>
+                                                                                    <property name="maxValue" stdset="0">
+                                                                                        <number>255</number>
+                                                                                    </property>
+                                                                                    <property name="indent">
+                                                                                        <bool>true</bool>
+                                                                                    </property>
+                                                                                    <property name="arrowDirection">
+                                                                                        <enum>Qt::UpArrow</enum>
+                                                                                    </property>
+                                                                                    <property name="firstColor">
+                                                                                        <color alpha="0">
+                                                                                            <red>0</red>
+                                                                                            <green>0</green>
+                                                                                            <blue>0</blue>
+                                                                                        </color>
+                                                                                    </property>
+                                                                                    <property name="secondColor">
+                                                                                        <color>
+                                                                                            <red>0</red>
+                                                                                            <green>0</green>
+                                                                                            <blue>0</blue>
+                                                                                        </color>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="0" column="1">
+                                                                                <widget class="KColorButton" name="kcfg_TargetColor_3"/>
+                                                                            </item>
+                                                                        </layout>
+                                                                    </widget>
+                                                                </item>
+                                                            </layout>
+                                                        </widget>
+                                                    </item>
+                                                    <item>
+                                                        <widget class="QGroupBox" name="colorConfig_4">
+                                                            <layout class="QHBoxLayout" name="horizontalLayout_5">
+                                                                <item>
+                                                                    <widget class="QCheckBox" name="kcfg_EnableColor_4">
+                                                                        <property name="text">
+                                                                            <string>Enable Color 4</string>
+                                                                        </property>
+                                                                    </widget>
+                                                                </item>
+                                                                <item>
+                                                                    <widget class="QGroupBox" name="colorAlphaGroup_4">
+                                                                        <layout class="QFormLayout" name="colorAlphaPairLayout_4">
+                                                                            <item row="0" column="0">
+                                                                                <widget class="QLabel" name="colorLabel_4">
+                                                                                    <property name="text">
+                                                                                        <string>Color 4:</string>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="1" column="0">
+                                                                                <widget class="QLabel" name="alphaLabel_4">
+                                                                                    <property name="text">
+                                                                                        <string>Alpha 4:</string>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="1" column="1">
+                                                                                <widget class="KGradientSelector" name="kcfg_TargetAlpha_4">
+                                                                                    <property name="sizePolicy">
+                                                                                        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                                                                                            <horstretch>0</horstretch>
+                                                                                            <verstretch>0</verstretch>
+                                                                                        </sizepolicy>
+                                                                                    </property>
+                                                                                    <property name="minimumSize">
+                                                                                        <size>
+                                                                                            <width>30</width>
+                                                                                            <height>30</height>
+                                                                                        </size>
+                                                                                    </property>
+                                                                                    <property name="maximumSize">
+                                                                                        <size>
+                                                                                            <width>16777215</width>
+                                                                                            <height>30</height>
+                                                                                        </size>
+                                                                                    </property>
+                                                                                    <property name="value">
+                                                                                        <number>99</number>
+                                                                                    </property>
+                                                                                    <property name="maxValue" stdset="0">
+                                                                                        <number>255</number>
+                                                                                    </property>
+                                                                                    <property name="indent">
+                                                                                        <bool>true</bool>
+                                                                                    </property>
+                                                                                    <property name="arrowDirection">
+                                                                                        <enum>Qt::UpArrow</enum>
+                                                                                    </property>
+                                                                                    <property name="firstColor">
+                                                                                        <color alpha="0">
+                                                                                            <red>0</red>
+                                                                                            <green>0</green>
+                                                                                            <blue>0</blue>
+                                                                                        </color>
+                                                                                    </property>
+                                                                                    <property name="secondColor">
+                                                                                        <color>
+                                                                                            <red>0</red>
+                                                                                            <green>0</green>
+                                                                                            <blue>0</blue>
+                                                                                        </color>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="0" column="1">
+                                                                                <widget class="KColorButton" name="kcfg_TargetColor_4"/>
+                                                                            </item>
+                                                                        </layout>
+                                                                    </widget>
+                                                                </item>
+                                                            </layout>
+                                                        </widget>
+                                                    </item>
+                                                    <item>
+                                                        <widget class="QGroupBox" name="colorConfig_5">
+                                                            <layout class="QHBoxLayout" name="horizontalLayout_6">
+                                                                <item>
+                                                                    <widget class="QCheckBox" name="kcfg_EnableColor_5">
+                                                                        <property name="text">
+                                                                            <string>Enable Color 5</string>
+                                                                        </property>
+                                                                    </widget>
+                                                                </item>
+                                                                <item>
+                                                                    <widget class="QGroupBox" name="colorAlphaGroup_5">
+                                                                        <layout class="QFormLayout" name="colorAlphaPairLayout_5">
+                                                                            <item row="0" column="0">
+                                                                                <widget class="QLabel" name="colorLabel_5">
+                                                                                    <property name="text">
+                                                                                        <string>Color 5:</string>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="1" column="0">
+                                                                                <widget class="QLabel" name="alphaLabel_5">
+                                                                                    <property name="text">
+                                                                                        <string>Alpha 5:</string>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="1" column="1">
+                                                                                <widget class="KGradientSelector" name="kcfg_TargetAlpha_5">
+                                                                                    <property name="sizePolicy">
+                                                                                        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                                                                                            <horstretch>0</horstretch>
+                                                                                            <verstretch>0</verstretch>
+                                                                                        </sizepolicy>
+                                                                                    </property>
+                                                                                    <property name="minimumSize">
+                                                                                        <size>
+                                                                                            <width>30</width>
+                                                                                            <height>30</height>
+                                                                                        </size>
+                                                                                    </property>
+                                                                                    <property name="maximumSize">
+                                                                                        <size>
+                                                                                            <width>16777215</width>
+                                                                                            <height>30</height>
+                                                                                        </size>
+                                                                                    </property>
+                                                                                    <property name="value">
+                                                                                        <number>99</number>
+                                                                                    </property>
+                                                                                    <property name="maxValue" stdset="0">
+                                                                                        <number>255</number>
+                                                                                    </property>
+                                                                                    <property name="indent">
+                                                                                        <bool>true</bool>
+                                                                                    </property>
+                                                                                    <property name="arrowDirection">
+                                                                                        <enum>Qt::UpArrow</enum>
+                                                                                    </property>
+                                                                                    <property name="firstColor">
+                                                                                        <color alpha="0">
+                                                                                            <red>0</red>
+                                                                                            <green>0</green>
+                                                                                            <blue>0</blue>
+                                                                                        </color>
+                                                                                    </property>
+                                                                                    <property name="secondColor">
+                                                                                        <color>
+                                                                                            <red>0</red>
+                                                                                            <green>0</green>
+                                                                                            <blue>0</blue>
+                                                                                        </color>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="0" column="1">
+                                                                                <widget class="KColorButton" name="kcfg_TargetColor_5"/>
+                                                                            </item>
+                                                                        </layout>
+                                                                    </widget>
+                                                                </item>
+                                                            </layout>
+                                                        </widget>
+                                                    </item>
+                                                    <item>
+                                                        <widget class="QGroupBox" name="colorConfig_6">
+                                                            <layout class="QHBoxLayout" name="horizontalLayout_7">
+                                                                <item>
+                                                                    <widget class="QCheckBox" name="kcfg_EnableColor_6">
+                                                                        <property name="text">
+                                                                            <string>Enable Color 6</string>
+                                                                        </property>
+                                                                    </widget>
+                                                                </item>
+                                                                <item>
+                                                                    <widget class="QGroupBox" name="colorAlphaGroup_6">
+                                                                        <layout class="QFormLayout" name="colorAlphaPairLayout_6">
+                                                                            <item row="0" column="0">
+                                                                                <widget class="QLabel" name="colorLabel_6">
+                                                                                    <property name="text">
+                                                                                        <string>Color 6:</string>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="1" column="0">
+                                                                                <widget class="QLabel" name="alphaLabel_6">
+                                                                                    <property name="text">
+                                                                                        <string>Alpha 6:</string>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="1" column="1">
+                                                                                <widget class="KGradientSelector" name="kcfg_TargetAlpha_6">
+                                                                                    <property name="sizePolicy">
+                                                                                        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                                                                                            <horstretch>0</horstretch>
+                                                                                            <verstretch>0</verstretch>
+                                                                                        </sizepolicy>
+                                                                                    </property>
+                                                                                    <property name="minimumSize">
+                                                                                        <size>
+                                                                                            <width>30</width>
+                                                                                            <height>30</height>
+                                                                                        </size>
+                                                                                    </property>
+                                                                                    <property name="maximumSize">
+                                                                                        <size>
+                                                                                            <width>16777215</width>
+                                                                                            <height>30</height>
+                                                                                        </size>
+                                                                                    </property>
+                                                                                    <property name="value">
+                                                                                        <number>99</number>
+                                                                                    </property>
+                                                                                    <property name="maxValue" stdset="0">
+                                                                                        <number>255</number>
+                                                                                    </property>
+                                                                                    <property name="indent">
+                                                                                        <bool>true</bool>
+                                                                                    </property>
+                                                                                    <property name="arrowDirection">
+                                                                                        <enum>Qt::UpArrow</enum>
+                                                                                    </property>
+                                                                                    <property name="firstColor">
+                                                                                        <color alpha="0">
+                                                                                            <red>0</red>
+                                                                                            <green>0</green>
+                                                                                            <blue>0</blue>
+                                                                                        </color>
+                                                                                    </property>
+                                                                                    <property name="secondColor">
+                                                                                        <color>
+                                                                                            <red>0</red>
+                                                                                            <green>0</green>
+                                                                                            <blue>0</blue>
+                                                                                        </color>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="0" column="1">
+                                                                                <widget class="KColorButton" name="kcfg_TargetColor_6"/>
+                                                                            </item>
+                                                                        </layout>
+                                                                    </widget>
+                                                                </item>
+                                                            </layout>
+                                                        </widget>
+                                                    </item>
+                                                    <item>
+                                                        <widget class="QGroupBox" name="colorConfig_7">
+                                                            <layout class="QHBoxLayout" name="horizontalLayout_8">
+                                                                <item>
+                                                                    <widget class="QCheckBox" name="kcfg_EnableColor_7">
+                                                                        <property name="text">
+                                                                            <string>Enable Color 7</string>
+                                                                        </property>
+                                                                    </widget>
+                                                                </item>
+                                                                <item>
+                                                                    <widget class="QGroupBox" name="colorAlphaGroup_7">
+                                                                        <layout class="QFormLayout" name="colorAlphaPairLayout_7">
+                                                                            <item row="0" column="0">
+                                                                                <widget class="QLabel" name="colorLabel_7">
+                                                                                    <property name="text">
+                                                                                        <string>Color 7:</string>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="1" column="0">
+                                                                                <widget class="QLabel" name="alphaLabel_7">
+                                                                                    <property name="text">
+                                                                                        <string>Alpha 7:</string>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="1" column="1">
+                                                                                <widget class="KGradientSelector" name="kcfg_TargetAlpha_7">
+                                                                                    <property name="sizePolicy">
+                                                                                        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                                                                                            <horstretch>0</horstretch>
+                                                                                            <verstretch>0</verstretch>
+                                                                                        </sizepolicy>
+                                                                                    </property>
+                                                                                    <property name="minimumSize">
+                                                                                        <size>
+                                                                                            <width>30</width>
+                                                                                            <height>30</height>
+                                                                                        </size>
+                                                                                    </property>
+                                                                                    <property name="maximumSize">
+                                                                                        <size>
+                                                                                            <width>16777215</width>
+                                                                                            <height>30</height>
+                                                                                        </size>
+                                                                                    </property>
+                                                                                    <property name="value">
+                                                                                        <number>99</number>
+                                                                                    </property>
+                                                                                    <property name="maxValue" stdset="0">
+                                                                                        <number>255</number>
+                                                                                    </property>
+                                                                                    <property name="indent">
+                                                                                        <bool>true</bool>
+                                                                                    </property>
+                                                                                    <property name="arrowDirection">
+                                                                                        <enum>Qt::UpArrow</enum>
+                                                                                    </property>
+                                                                                    <property name="firstColor">
+                                                                                        <color alpha="0">
+                                                                                            <red>0</red>
+                                                                                            <green>0</green>
+                                                                                            <blue>0</blue>
+                                                                                        </color>
+                                                                                    </property>
+                                                                                    <property name="secondColor">
+                                                                                        <color>
+                                                                                            <red>0</red>
+                                                                                            <green>0</green>
+                                                                                            <blue>0</blue>
+                                                                                        </color>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="0" column="1">
+                                                                                <widget class="KColorButton" name="kcfg_TargetColor_7"/>
+                                                                            </item>
+                                                                        </layout>
+                                                                    </widget>
+                                                                </item>
+                                                            </layout>
+                                                        </widget>
+                                                    </item>
+                                                    <item>
+                                                        <widget class="QGroupBox" name="colorConfig_8">
+                                                            <layout class="QHBoxLayout" name="horizontalLayout_9">
+                                                                <item>
+                                                                    <widget class="QCheckBox" name="kcfg_EnableColor_8">
+                                                                        <property name="text">
+                                                                            <string>Enable Color 8</string>
+                                                                        </property>
+                                                                    </widget>
+                                                                </item>
+                                                                <item>
+                                                                    <widget class="QGroupBox" name="colorAlphaGroup_8">
+                                                                        <layout class="QFormLayout" name="colorAlphaPairLayout_8">
+                                                                            <item row="0" column="0">
+                                                                                <widget class="QLabel" name="colorLabel_8">
+                                                                                    <property name="text">
+                                                                                        <string>Color 8:</string>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="1" column="0">
+                                                                                <widget class="QLabel" name="alphaLabel_8">
+                                                                                    <property name="text">
+                                                                                        <string>Alpha 8:</string>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="1" column="1">
+                                                                                <widget class="KGradientSelector" name="kcfg_TargetAlpha_8">
+                                                                                    <property name="sizePolicy">
+                                                                                        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                                                                                            <horstretch>0</horstretch>
+                                                                                            <verstretch>0</verstretch>
+                                                                                        </sizepolicy>
+                                                                                    </property>
+                                                                                    <property name="minimumSize">
+                                                                                        <size>
+                                                                                            <width>30</width>
+                                                                                            <height>30</height>
+                                                                                        </size>
+                                                                                    </property>
+                                                                                    <property name="maximumSize">
+                                                                                        <size>
+                                                                                            <width>16777215</width>
+                                                                                            <height>30</height>
+                                                                                        </size>
+                                                                                    </property>
+                                                                                    <property name="value">
+                                                                                        <number>99</number>
+                                                                                    </property>
+                                                                                    <property name="maxValue" stdset="0">
+                                                                                        <number>255</number>
+                                                                                    </property>
+                                                                                    <property name="indent">
+                                                                                        <bool>true</bool>
+                                                                                    </property>
+                                                                                    <property name="arrowDirection">
+                                                                                        <enum>Qt::UpArrow</enum>
+                                                                                    </property>
+                                                                                    <property name="firstColor">
+                                                                                        <color alpha="0">
+                                                                                            <red>0</red>
+                                                                                            <green>0</green>
+                                                                                            <blue>0</blue>
+                                                                                        </color>
+                                                                                    </property>
+                                                                                    <property name="secondColor">
+                                                                                        <color>
+                                                                                            <red>0</red>
+                                                                                            <green>0</green>
+                                                                                            <blue>0</blue>
+                                                                                        </color>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="0" column="1">
+                                                                                <widget class="KColorButton" name="kcfg_TargetColor_8"/>
+                                                                            </item>
+                                                                        </layout>
+                                                                    </widget>
+                                                                </item>
+                                                            </layout>
+                                                        </widget>
+                                                    </item>
+                                                    <item>
+                                                        <widget class="QGroupBox" name="colorConfig_9">
+                                                            <layout class="QHBoxLayout" name="horizontalLayout_10">
+                                                                <item>
+                                                                    <widget class="QCheckBox" name="kcfg_EnableColor_9">
+                                                                        <property name="text">
+                                                                            <string>Enable Color 9</string>
+                                                                        </property>
+                                                                    </widget>
+                                                                </item>
+                                                                <item>
+                                                                    <widget class="QGroupBox" name="colorAlphaGroup_9">
+                                                                        <layout class="QFormLayout" name="colorAlphaPairLayout_9">
+                                                                            <item row="0" column="0">
+                                                                                <widget class="QLabel" name="colorLabel_9">
+                                                                                    <property name="text">
+                                                                                        <string>Color 9:</string>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="1" column="0">
+                                                                                <widget class="QLabel" name="alphaLabel_9">
+                                                                                    <property name="text">
+                                                                                        <string>Alpha 9:</string>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="1" column="1">
+                                                                                <widget class="KGradientSelector" name="kcfg_TargetAlpha_9">
+                                                                                    <property name="sizePolicy">
+                                                                                        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                                                                                            <horstretch>0</horstretch>
+                                                                                            <verstretch>0</verstretch>
+                                                                                        </sizepolicy>
+                                                                                    </property>
+                                                                                    <property name="minimumSize">
+                                                                                        <size>
+                                                                                            <width>30</width>
+                                                                                            <height>30</height>
+                                                                                        </size>
+                                                                                    </property>
+                                                                                    <property name="maximumSize">
+                                                                                        <size>
+                                                                                            <width>16777215</width>
+                                                                                            <height>30</height>
+                                                                                        </size>
+                                                                                    </property>
+                                                                                    <property name="value">
+                                                                                        <number>99</number>
+                                                                                    </property>
+                                                                                    <property name="maxValue" stdset="0">
+                                                                                        <number>255</number>
+                                                                                    </property>
+                                                                                    <property name="indent">
+                                                                                        <bool>true</bool>
+                                                                                    </property>
+                                                                                    <property name="arrowDirection">
+                                                                                        <enum>Qt::UpArrow</enum>
+                                                                                    </property>
+                                                                                    <property name="firstColor">
+                                                                                        <color alpha="0">
+                                                                                            <red>0</red>
+                                                                                            <green>0</green>
+                                                                                            <blue>0</blue>
+                                                                                        </color>
+                                                                                    </property>
+                                                                                    <property name="secondColor">
+                                                                                        <color>
+                                                                                            <red>0</red>
+                                                                                            <green>0</green>
+                                                                                            <blue>0</blue>
+                                                                                        </color>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="0" column="1">
+                                                                                <widget class="KColorButton" name="kcfg_TargetColor_9"/>
+                                                                            </item>
+                                                                        </layout>
+                                                                    </widget>
+                                                                </item>
+                                                            </layout>
+                                                        </widget>
+                                                    </item>
+                                                    <item>
+                                                        <widget class="QGroupBox" name="colorConfig_10">
+                                                            <layout class="QHBoxLayout" name="horizontalLayout_11">
+                                                                <item>
+                                                                    <widget class="QCheckBox" name="kcfg_EnableColor_10">
+                                                                        <property name="text">
+                                                                            <string>Enable Color 10</string>
+                                                                        </property>
+                                                                    </widget>
+                                                                </item>
+                                                                <item>
+                                                                    <widget class="QGroupBox" name="colorAlphaGroup_10">
+                                                                        <layout class="QFormLayout" name="colorAlphaPairLayout_10">
+                                                                            <item row="0" column="0">
+                                                                                <widget class="QLabel" name="colorLabel_10">
+                                                                                    <property name="text">
+                                                                                        <string>Color 10:</string>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="1" column="0">
+                                                                                <widget class="QLabel" name="alphaLabel_10">
+                                                                                    <property name="text">
+                                                                                        <string>Alpha 10:</string>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="1" column="1">
+                                                                                <widget class="KGradientSelector" name="kcfg_TargetAlpha_10">
+                                                                                    <property name="sizePolicy">
+                                                                                        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+                                                                                            <horstretch>0</horstretch>
+                                                                                            <verstretch>0</verstretch>
+                                                                                        </sizepolicy>
+                                                                                    </property>
+                                                                                    <property name="minimumSize">
+                                                                                        <size>
+                                                                                            <width>30</width>
+                                                                                            <height>30</height>
+                                                                                        </size>
+                                                                                    </property>
+                                                                                    <property name="maximumSize">
+                                                                                        <size>
+                                                                                            <width>16777215</width>
+                                                                                            <height>30</height>
+                                                                                        </size>
+                                                                                    </property>
+                                                                                    <property name="value">
+                                                                                        <number>99</number>
+                                                                                    </property>
+                                                                                    <property name="maxValue" stdset="0">
+                                                                                        <number>255</number>
+                                                                                    </property>
+                                                                                    <property name="indent">
+                                                                                        <bool>true</bool>
+                                                                                    </property>
+                                                                                    <property name="arrowDirection">
+                                                                                        <enum>Qt::UpArrow</enum>
+                                                                                    </property>
+                                                                                    <property name="firstColor">
+                                                                                        <color alpha="0">
+                                                                                            <red>0</red>
+                                                                                            <green>0</green>
+                                                                                            <blue>0</blue>
+                                                                                        </color>
+                                                                                    </property>
+                                                                                    <property name="secondColor">
+                                                                                        <color>
+                                                                                            <red>0</red>
+                                                                                            <green>0</green>
+                                                                                            <blue>0</blue>
+                                                                                        </color>
+                                                                                    </property>
+                                                                                </widget>
+                                                                            </item>
+                                                                            <item row="0" column="1">
+                                                                                <widget class="KColorButton" name="kcfg_TargetColor_10"/>
+                                                                            </item>
+                                                                        </layout>
+                                                                    </widget>
+                                                                </item>
+                                                            </layout>
+                                                        </widget>
+                                                    </item>
+                                                </layout>
+                                            </widget>
+                                        </widget>
+                                    </item>
+                                </layout>
+                            </item>
+                        </layout>
                     </widget>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="alphaLabel_1">
-                     <property name="text">
-                      <string>Alpha 1:</string>
-                     </property>
+                    <widget class="QWidget" name="tab_2">
+                        <attribute name="title">
+                            <string>Inclusions &amp; Exclusions</string>
+                        </attribute>
+                        <layout class="QGridLayout" name="gridLayout" rowminimumheight="0,100,100,0,100,100,0">
+                            <item row="3" column="2">
+                                <widget class="QLabel" name="label_3">
+                                    <property name="maximumSize">
+                                        <size>
+                                            <width>16777215</width>
+                                            <height>20</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string>Excluded Windows:</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="4" column="2" rowspan="2">
+                                <widget class="QListWidget" name="ExclusionList">
+                                    <property name="editTriggers">
+                                        <set>QAbstractItemView::NoEditTriggers</set>
+                                    </property>
+                                    <property name="showDropIndicator" stdset="0">
+                                        <bool>false</bool>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="4" column="1">
+                                <widget class="QPushButton" name="excludeButton">
+                                    <property name="text">
+                                        <string>Exclude &gt;</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="1" column="2" rowspan="2">
+                                <widget class="QListWidget" name="InclusionList">
+                                    <property name="editTriggers">
+                                        <set>QAbstractItemView::NoEditTriggers</set>
+                                    </property>
+                                    <property name="showDropIndicator" stdset="0">
+                                        <bool>false</bool>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="6" column="0">
+                                <widget class="QPushButton" name="refreshButton">
+                                    <property name="maximumSize">
+                                        <size>
+                                            <width>100</width>
+                                            <height>16777215</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string>Refresh</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="1" column="0" rowspan="5">
+                                <widget class="QListWidget" name="currentWindowList">
+                                    <property name="editTriggers">
+                                        <set>QAbstractItemView::NoEditTriggers</set>
+                                    </property>
+                                    <property name="showDropIndicator" stdset="0">
+                                        <bool>false</bool>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="1" column="1">
+                                <widget class="QPushButton" name="includeButton">
+                                    <property name="text">
+                                        <string>Include &gt;</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="5" column="1">
+                                <widget class="QPushButton" name="deleteExcludeButton">
+                                    <property name="text">
+                                        <string>&lt;</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="0" column="0">
+                                <widget class="QLabel" name="label_4">
+                                    <property name="maximumSize">
+                                        <size>
+                                            <width>16777215</width>
+                                            <height>20</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string>List of Current Open Windows:</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="2" column="1">
+                                <widget class="QPushButton" name="deleteIncludeButton">
+                                    <property name="text">
+                                        <string>&lt;</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="0" column="2">
+                                <widget class="QLabel" name="label_5">
+                                    <property name="maximumSize">
+                                        <size>
+                                            <width>16777215</width>
+                                            <height>20</height>
+                                        </size>
+                                    </property>
+                                    <property name="text">
+                                        <string>Included Windows:</string>
+                                    </property>
+                                </widget>
+                            </item>
+                        </layout>
                     </widget>
-                   </item>
-                   <item row="1" column="1">
-                    <widget class="KGradientSelector" name="kcfg_TargetAlpha_1">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="value">
-                      <number>99</number>
-                     </property>
-                     <property name="maxValue" stdset="0">
-                      <number>255</number>
-                     </property>
-                     <property name="indent">
-                      <bool>true</bool>
-                     </property>
-                     <property name="arrowDirection">
-                      <enum>Qt::UpArrow</enum>
-                     </property>
-                     <property name="firstColor">
-                      <color alpha="0">
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </property>
-                     <property name="secondColor">
-                      <color>
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="KColorButton" name="kcfg_TargetColor_1"/>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
-              <widget class="QGroupBox" name="colorConfig_2">
-               <property name="enabled">
-                <bool>true</bool>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_3">
-                <item>
-                 <widget class="QCheckBox" name="kcfg_EnableColor_2">
-                  <property name="text">
-                   <string>Enable Color 2</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QGroupBox" name="colorAlphaGroup_2">
-                  <layout class="QFormLayout" name="colorAlphaPairLayout_2">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="colorLabel_2">
-                     <property name="text">
-                      <string>Color 2:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="KColorButton" name="kcfg_TargetColor_2"/>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="alphaLabel_2">
-                     <property name="text">
-                      <string>Alpha 2:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="1">
-                    <widget class="KGradientSelector" name="kcfg_TargetAlpha_2">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="value">
-                      <number>99</number>
-                     </property>
-                     <property name="maxValue" stdset="0">
-                      <number>255</number>
-                     </property>
-                     <property name="indent">
-                      <bool>true</bool>
-                     </property>
-                     <property name="arrowDirection">
-                      <enum>Qt::UpArrow</enum>
-                     </property>
-                     <property name="firstColor">
-                      <color alpha="0">
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </property>
-                     <property name="secondColor">
-                      <color>
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
-              <widget class="QGroupBox" name="colorConfig_3">
-               <layout class="QHBoxLayout" name="horizontalLayout_4">
-                <item>
-                 <widget class="QCheckBox" name="kcfg_EnableColor_3">
-                  <property name="text">
-                   <string>Enable Color 3</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QGroupBox" name="colorAlphaGroup_3">
-                  <layout class="QFormLayout" name="colorAlphaPairLayout_3">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="colorLabel_3">
-                     <property name="text">
-                      <string>Color 3:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="alphaLabel_3">
-                     <property name="text">
-                      <string>Alpha 3:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="1">
-                    <widget class="KGradientSelector" name="kcfg_TargetAlpha_3">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="value">
-                      <number>99</number>
-                     </property>
-                     <property name="maxValue" stdset="0">
-                      <number>255</number>
-                     </property>
-                     <property name="indent">
-                      <bool>true</bool>
-                     </property>
-                     <property name="arrowDirection">
-                      <enum>Qt::UpArrow</enum>
-                     </property>
-                     <property name="firstColor">
-                      <color alpha="0">
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </property>
-                     <property name="secondColor">
-                      <color>
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="KColorButton" name="kcfg_TargetColor_3"/>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
-              <widget class="QGroupBox" name="colorConfig_4">
-               <layout class="QHBoxLayout" name="horizontalLayout_5">
-                <item>
-                 <widget class="QCheckBox" name="kcfg_EnableColor_4">
-                  <property name="text">
-                   <string>Enable Color 4</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QGroupBox" name="colorAlphaGroup_4">
-                  <layout class="QFormLayout" name="colorAlphaPairLayout_4">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="colorLabel_4">
-                     <property name="text">
-                      <string>Color 4:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="alphaLabel_4">
-                     <property name="text">
-                      <string>Alpha 4:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="1">
-                    <widget class="KGradientSelector" name="kcfg_TargetAlpha_4">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="value">
-                      <number>99</number>
-                     </property>
-                     <property name="maxValue" stdset="0">
-                      <number>255</number>
-                     </property>
-                     <property name="indent">
-                      <bool>true</bool>
-                     </property>
-                     <property name="arrowDirection">
-                      <enum>Qt::UpArrow</enum>
-                     </property>
-                     <property name="firstColor">
-                      <color alpha="0">
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </property>
-                     <property name="secondColor">
-                      <color>
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="KColorButton" name="kcfg_TargetColor_4"/>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
-              <widget class="QGroupBox" name="colorConfig_5">
-               <layout class="QHBoxLayout" name="horizontalLayout_6">
-                <item>
-                 <widget class="QCheckBox" name="kcfg_EnableColor_5">
-                  <property name="text">
-                   <string>Enable Color 5</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QGroupBox" name="colorAlphaGroup_5">
-                  <layout class="QFormLayout" name="colorAlphaPairLayout_5">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="colorLabel_5">
-                     <property name="text">
-                      <string>Color 5:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="alphaLabel_5">
-                     <property name="text">
-                      <string>Alpha 5:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="1">
-                    <widget class="KGradientSelector" name="kcfg_TargetAlpha_5">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="value">
-                      <number>99</number>
-                     </property>
-                     <property name="maxValue" stdset="0">
-                      <number>255</number>
-                     </property>
-                     <property name="indent">
-                      <bool>true</bool>
-                     </property>
-                     <property name="arrowDirection">
-                      <enum>Qt::UpArrow</enum>
-                     </property>
-                     <property name="firstColor">
-                      <color alpha="0">
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </property>
-                     <property name="secondColor">
-                      <color>
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="KColorButton" name="kcfg_TargetColor_5"/>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
-              <widget class="QGroupBox" name="colorConfig_6">
-               <layout class="QHBoxLayout" name="horizontalLayout_7">
-                <item>
-                 <widget class="QCheckBox" name="kcfg_EnableColor_6">
-                  <property name="text">
-                   <string>Enable Color 6</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QGroupBox" name="colorAlphaGroup_6">
-                  <layout class="QFormLayout" name="colorAlphaPairLayout_6">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="colorLabel_6">
-                     <property name="text">
-                      <string>Color 6:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="alphaLabel_6">
-                     <property name="text">
-                      <string>Alpha 6:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="1">
-                    <widget class="KGradientSelector" name="kcfg_TargetAlpha_6">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="value">
-                      <number>99</number>
-                     </property>
-                     <property name="maxValue" stdset="0">
-                      <number>255</number>
-                     </property>
-                     <property name="indent">
-                      <bool>true</bool>
-                     </property>
-                     <property name="arrowDirection">
-                      <enum>Qt::UpArrow</enum>
-                     </property>
-                     <property name="firstColor">
-                      <color alpha="0">
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </property>
-                     <property name="secondColor">
-                      <color>
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="KColorButton" name="kcfg_TargetColor_6"/>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
-              <widget class="QGroupBox" name="colorConfig_7">
-               <layout class="QHBoxLayout" name="horizontalLayout_8">
-                <item>
-                 <widget class="QCheckBox" name="kcfg_EnableColor_7">
-                  <property name="text">
-                   <string>Enable Color 7</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QGroupBox" name="colorAlphaGroup_7">
-                  <layout class="QFormLayout" name="colorAlphaPairLayout_7">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="colorLabel_7">
-                     <property name="text">
-                      <string>Color 7:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="alphaLabel_7">
-                     <property name="text">
-                      <string>Alpha 7:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="1">
-                    <widget class="KGradientSelector" name="kcfg_TargetAlpha_7">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="value">
-                      <number>99</number>
-                     </property>
-                     <property name="maxValue" stdset="0">
-                      <number>255</number>
-                     </property>
-                     <property name="indent">
-                      <bool>true</bool>
-                     </property>
-                     <property name="arrowDirection">
-                      <enum>Qt::UpArrow</enum>
-                     </property>
-                     <property name="firstColor">
-                      <color alpha="0">
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </property>
-                     <property name="secondColor">
-                      <color>
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="KColorButton" name="kcfg_TargetColor_7"/>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
-              <widget class="QGroupBox" name="colorConfig_8">
-               <layout class="QHBoxLayout" name="horizontalLayout_9">
-                <item>
-                 <widget class="QCheckBox" name="kcfg_EnableColor_8">
-                  <property name="text">
-                   <string>Enable Color 8</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QGroupBox" name="colorAlphaGroup_8">
-                  <layout class="QFormLayout" name="colorAlphaPairLayout_8">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="colorLabel_8">
-                     <property name="text">
-                      <string>Color 8:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="alphaLabel_8">
-                     <property name="text">
-                      <string>Alpha 8:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="1">
-                    <widget class="KGradientSelector" name="kcfg_TargetAlpha_8">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="value">
-                      <number>99</number>
-                     </property>
-                     <property name="maxValue" stdset="0">
-                      <number>255</number>
-                     </property>
-                     <property name="indent">
-                      <bool>true</bool>
-                     </property>
-                     <property name="arrowDirection">
-                      <enum>Qt::UpArrow</enum>
-                     </property>
-                     <property name="firstColor">
-                      <color alpha="0">
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </property>
-                     <property name="secondColor">
-                      <color>
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="KColorButton" name="kcfg_TargetColor_8"/>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
-              <widget class="QGroupBox" name="colorConfig_9">
-               <layout class="QHBoxLayout" name="horizontalLayout_10">
-                <item>
-                 <widget class="QCheckBox" name="kcfg_EnableColor_9">
-                  <property name="text">
-                   <string>Enable Color 9</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QGroupBox" name="colorAlphaGroup_9">
-                  <layout class="QFormLayout" name="colorAlphaPairLayout_9">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="colorLabel_9">
-                     <property name="text">
-                      <string>Color 9:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="alphaLabel_9">
-                     <property name="text">
-                      <string>Alpha 9:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="1">
-                    <widget class="KGradientSelector" name="kcfg_TargetAlpha_9">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="value">
-                      <number>99</number>
-                     </property>
-                     <property name="maxValue" stdset="0">
-                      <number>255</number>
-                     </property>
-                     <property name="indent">
-                      <bool>true</bool>
-                     </property>
-                     <property name="arrowDirection">
-                      <enum>Qt::UpArrow</enum>
-                     </property>
-                     <property name="firstColor">
-                      <color alpha="0">
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </property>
-                     <property name="secondColor">
-                      <color>
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="KColorButton" name="kcfg_TargetColor_9"/>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
-              <widget class="QGroupBox" name="colorConfig_10">
-               <layout class="QHBoxLayout" name="horizontalLayout_11">
-                <item>
-                 <widget class="QCheckBox" name="kcfg_EnableColor_10">
-                  <property name="text">
-                   <string>Enable Color 10</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QGroupBox" name="colorAlphaGroup_10">
-                  <layout class="QFormLayout" name="colorAlphaPairLayout_10">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="colorLabel_10">
-                     <property name="text">
-                      <string>Color 10:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="alphaLabel_10">
-                     <property name="text">
-                      <string>Alpha 10:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="1">
-                    <widget class="KGradientSelector" name="kcfg_TargetAlpha_10">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>30</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="value">
-                      <number>99</number>
-                     </property>
-                     <property name="maxValue" stdset="0">
-                      <number>255</number>
-                     </property>
-                     <property name="indent">
-                      <bool>true</bool>
-                     </property>
-                     <property name="arrowDirection">
-                      <enum>Qt::UpArrow</enum>
-                     </property>
-                     <property name="firstColor">
-                      <color alpha="0">
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </property>
-                     <property name="secondColor">
-                      <color>
-                       <red>0</red>
-                       <green>0</green>
-                       <blue>0</blue>
-                      </color>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="KColorButton" name="kcfg_TargetColor_10"/>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </widget>
-         </item>
+                </widget>
+            </item>
         </layout>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="tab_2">
-      <attribute name="title">
-       <string>Inclusions &amp; Exclusions</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout" rowminimumheight="0,100,100,0,100,100,0">
-       <item row="3" column="2">
-        <widget class="QLabel" name="label_3">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Excluded Windows:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="2" rowspan="2">
-        <widget class="QListWidget" name="ExclusionList">
-         <property name="editTriggers">
-          <set>QAbstractItemView::NoEditTriggers</set>
-         </property>
-         <property name="showDropIndicator" stdset="0">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
-        <widget class="QPushButton" name="excludeButton">
-         <property name="text">
-          <string>Exclude &gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="2" rowspan="2">
-        <widget class="QListWidget" name="InclusionList">
-         <property name="editTriggers">
-          <set>QAbstractItemView::NoEditTriggers</set>
-         </property>
-         <property name="showDropIndicator" stdset="0">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="0">
-        <widget class="QPushButton" name="refreshButton">
-         <property name="maximumSize">
-          <size>
-           <width>100</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Refresh</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0" rowspan="5">
-        <widget class="QListWidget" name="currentWindowList">
-         <property name="editTriggers">
-          <set>QAbstractItemView::NoEditTriggers</set>
-         </property>
-         <property name="showDropIndicator" stdset="0">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="includeButton">
-         <property name="text">
-          <string>Include &gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="1">
-        <widget class="QPushButton" name="deleteExcludeButton">
-         <property name="text">
-          <string>&lt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_4">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>List of Current Open Windows:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QPushButton" name="deleteIncludeButton">
-         <property name="text">
-          <string>&lt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QLabel" name="label_5">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Included Windows:</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
     </widget>
-   </item>
-  </layout>
- </widget>
- <customwidgets>
-  <customwidget>
-   <class>KColorButton</class>
-   <extends>QPushButton</extends>
-   <header>kcolorbutton.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KGradientSelector</class>
-   <extends>QWidget</extends>
-   <header>kselector.h</header>
-  </customwidget>
- </customwidgets>
- <resources/>
- <connections/>
+    <customwidgets>
+        <customwidget>
+            <class>KColorButton</class>
+            <extends>QPushButton</extends>
+            <header>kcolorbutton.h</header>
+        </customwidget>
+        <customwidget>
+            <class>KGradientSelector</class>
+            <extends>QWidget</extends>
+            <header>kselector.h</header>
+        </customwidget>
+    </customwidgets>
+    <resources/>
+    <connections/>
 </ui>

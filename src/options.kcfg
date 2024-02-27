@@ -15,176 +15,138 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  */ -->
-
 <kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0 http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
-
     <kcfgfile name="kwinrc" />
-
     <group name="Effect-Color-Translucency">
-
         <entry name="EnableColor_1" type="Bool">
             <label>Checkbox enable color/alpha 1</label>
             <default>false</default>
         </entry>
-
         <entry name="EnableColor_2" type="Bool">
             <label>Checkbox enable color/alpha 2</label>
             <default>false</default>
         </entry>
-
         <entry name="EnableColor_3" type="Bool">
             <label>Checkbox enable color/alpha 3</label>
             <default>false</default>
         </entry>
-
         <entry name="EnableColor_4" type="Bool">
             <label>Checkbox enable color/alpha 4</label>
             <default>false</default>
         </entry>
-
         <entry name="EnableColor_5" type="Bool">
             <label>Checkbox enable color/alpha 5</label>
             <default>false</default>
         </entry>
-
         <entry name="EnableColor_6" type="Bool">
             <label>Checkbox enable color/alpha 6</label>
             <default>false</default>
         </entry>
-
         <entry name="EnableColor_7" type="Bool">
             <label>Checkbox enable color/alpha 7</label>
             <default>false</default>
         </entry>
-
         <entry name="EnableColor_8" type="Bool">
             <label>Checkbox enable color/alpha 8</label>
             <default>false</default>
         </entry>
-
         <entry name="EnableColor_9" type="Bool">
             <label>Checkbox enable color/alpha 9</label>
             <default>false</default>
         </entry>
-
         <entry name="EnableColor_10" type="Bool">
             <label>Checkbox enable color/alpha 10</label>
             <default>false</default>
         </entry>
-
         <entry name="TargetColor_1" type="Color">
             <label>Transparent Color 1</label>
             <default>black</default>
         </entry>
-
         <entry name="TargetAlpha_1" type="Int">
             <label>Transparent Color 1 Alpha</label>
             <default>0</default>
         </entry>
-
         <entry name="TargetColor_2" type="Color">
             <label>Transparent Color 2</label>
             <default>black</default>
         </entry>
-
         <entry name="TargetAlpha_2" type="Int">
             <label>Transparent Color 2 Alpha</label>
             <default>0</default>
         </entry>
-
         <entry name="TargetColor_3" type="Color">
             <label>Transparent Color 3</label>
             <default>black</default>
         </entry>
-
         <entry name="TargetAlpha_3" type="Int">
             <label>Transparent Color 3 Alpha</label>
             <default>0</default>
         </entry>
-
         <entry name="TargetColor_4" type="Color">
             <label>Transparent Color 4</label>
             <default>black</default>
         </entry>
-
         <entry name="TargetAlpha_4" type="Int">
             <label>Transparent Color 4 Alpha</label>
             <default>0</default>
         </entry>
-
         <entry name="TargetColor_5" type="Color">
             <label>Transparent Color 5</label>
             <default>black</default>
         </entry>
-
         <entry name="TargetAlpha_5" type="Int">
             <label>Transparent Color 5 Alpha</label>
             <default>0</default>
         </entry>
-
         <entry name="TargetColor_6" type="Color">
             <label>Transparent Color 6</label>
             <default>black</default>
         </entry>
-
         <entry name="TargetAlpha_6" type="Int">
             <label>Transparent Color 6 Alpha</label>
             <default>0</default>
         </entry>
-
         <entry name="TargetColor_7" type="Color">
             <label>Transparent Color 7</label>
             <default>black</default>
         </entry>
-
         <entry name="TargetAlpha_7" type="Int">
             <label>Transparent Color 7 Alpha</label>
             <default>0</default>
         </entry>
-
         <entry name="TargetColor_8" type="Color">
             <label>Transparent Color 8</label>
             <default>black</default>
         </entry>
-
         <entry name="TargetAlpha_8" type="Int">
             <label>Transparent Color 8 Alpha</label>
             <default>0</default>
         </entry>
-
         <entry name="TargetColor_9" type="Color">
             <label>Transparent Color 9</label>
             <default>black</default>
         </entry>
-
         <entry name="TargetAlpha_9" type="Int">
             <label>Transparent Color 9 Alpha</label>
             <default>0</default>
         </entry>
-
         <entry name="TargetColor_10" type="Color">
             <label>Transparent Color 10</label>
             <default>black</default>
         </entry>
-
         <entry name="TargetAlpha_10" type="Int">
             <label>Transparent Color 10 Alpha</label>
             <default>0</default>
         </entry>
-
         <entry name="InclusionList" type="StringList">
             <label>Included Windows</label>
             <default></default>
-
         </entry>
-
         <entry name="ExclusionList" type="StringList">
             <label>Excluded Windows</label>
             <default></default>
         </entry>
-
     </group>
-
 </kcfg>

@@ -93,23 +93,17 @@ ColorTranslucencyKCM::ColorTranslucencyKCM(QWidget *parent,
           &ColorTranslucencyKCM::deleteExcludeButtonClicked);
 }
 
-
-
 void ColorTranslucencyKCM::includeButtonClicked() {
   auto s = ui->currentWindowList->currentItem();
-  if (s &&
-      ui->InclusionList->findItems(s->text(), Qt::MatchExactly).empty()) {
+  if (s && ui->InclusionList->findItems(s->text(), Qt::MatchExactly).empty()) {
     ui->InclusionList->addItem(s->text());
     markAsChanged();
   }
 }
 
-
-
 void ColorTranslucencyKCM::excludeButtonClicked() {
   auto s = ui->currentWindowList->currentItem();
-  if (s &&
-      ui->ExclusionList->findItems(s->text(), Qt::MatchExactly).empty()) {
+  if (s && ui->ExclusionList->findItems(s->text(), Qt::MatchExactly).empty()) {
     ui->ExclusionList->addItem(s->text());
     markAsChanged();
   }
@@ -132,28 +126,30 @@ void ColorTranslucencyKCM::deleteExcludeButtonClicked() {
 }
 
 void ColorTranslucencyKCM::updateColor(const QColor &color) {
-  // Assumes KColorButton and KGradientSelector widgets follow naming convention:
+  // Assumes KColorButton and KGradientSelector widgets follow naming
+  // convention:
   //   kcfg_TargetColor_<index>
   //   kcfg_TargetAlpha_<index>
-    KColorButton* senderButton = qobject_cast<KColorButton*>(sender());
-    if (!senderButton) {
-        qWarning() << "Sender is not a KColorButton";
-        return;
-    }
+  KColorButton *senderButton = qobject_cast<KColorButton *>(sender());
+  if (!senderButton) {
+    qWarning() << "Sender is not a KColorButton";
+    return;
+  }
 
-    QString senderName = senderButton->objectName();
-    int index = senderName.mid(senderName.lastIndexOf('_') + 1).toInt();
+  QString senderName = senderButton->objectName();
+  int index = senderName.mid(senderName.lastIndexOf('_') + 1).toInt();
 
-    QString alphaWidgetName = QString("kcfg_TargetAlpha_%1").arg(index);
-    KGradientSelector* alphaWidget = ui->tab_1->findChild<KGradientSelector*>(alphaWidgetName);
+  QString alphaWidgetName = QString("kcfg_TargetAlpha_%1").arg(index);
+  KGradientSelector *alphaWidget =
+      ui->tab_1->findChild<KGradientSelector *>(alphaWidgetName);
 
-    if (alphaWidget) {
-        alphaWidget->setSecondColor(color);
-    } else {
-        qWarning() << "Alpha widget" << alphaWidgetName << "not found for index:" << index;
-    }
+  if (alphaWidget) {
+    alphaWidget->setSecondColor(color);
+  } else {
+    qWarning() << "Alpha widget" << alphaWidgetName
+               << "not found for index:" << index;
+  }
 }
-
 
 void ColorTranslucencyKCM::updateWindows() {
 

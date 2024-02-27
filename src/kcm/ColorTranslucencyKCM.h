@@ -23,36 +23,35 @@
 #ifndef COLORTRANSLUCENCYKCM_H
 #define COLORTRANSLUCENCYKCM_H
 
-#include <kcmodule.h>
-#include "ui_ColorTranslucencyKCM.h"
 #include "ColorTranslucencyConfig.h"
+#include "ui_ColorTranslucencyKCM.h"
+#include <kcmodule.h>
 
-class ColorTranslucencyKCM : public KCModule
-{
-    Q_OBJECT
+class ColorTranslucencyKCM : public KCModule {
+  Q_OBJECT
 public:
 #if (QT_VERSION_MAJOR >= 6)
-    explicit ColorTranslucencyKCM(QObject* parent, const KPluginMetaData& args);
+  explicit ColorTranslucencyKCM(QObject *parent, const KPluginMetaData &args);
 #else
-    explicit ColorTranslucencyKCM(QWidget* parent = nullptr, const QVariantList& args = QVariantList());
+  explicit ColorTranslucencyKCM(QWidget *parent = nullptr,
+                                const QVariantList &args = QVariantList());
 #endif
 
 public slots:
-    void defaults() override;
-    void load() override;
-    void save() override;
-    void updateColor(const QColor& color);
-    void updateWindows();  
+  void defaults() override;
+  void load() override;
+  void save() override;
+  void updateColor(const QColor &color);
+  void updateWindows();
 
 private slots:
-    void includeButtonClicked();
-    void excludeButtonClicked();
-    void deleteIncludeButtonClicked();
-    void deleteExcludeButtonClicked();
-    
+  void includeButtonClicked();
+  void excludeButtonClicked();
+  void deleteIncludeButtonClicked();
+  void deleteExcludeButtonClicked();
 
 private:
-    Ui::Form *ui;
+  Ui::Form *ui;
 };
 
 #endif // COLORTRANSLUCENCYKCM_H

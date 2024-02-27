@@ -20,42 +20,42 @@
 
 #include <qconfig.h>
 #if QT_VERSION_MAJOR >= 6
-    #include <effect/effect.h>
+#include <effect/effect.h>
 #else
-    #include <kwineffects.h>
+#include <kwineffects.h>
 #endif
 
 namespace KWin {
-    class GLShader;
-    class ShaderManager;
-}
+class GLShader;
+class ShaderManager;
+} // namespace KWin
 
 const int MAX_SETS = 10;
 
-class ColorTranslucencyShader
-{
+class ColorTranslucencyShader {
 public:
-    ColorTranslucencyShader();
+  ColorTranslucencyShader();
 
-    bool IsValid() const;
-    const std::unique_ptr<KWin::GLShader> &Bind(KWin::EffectWindow *w) const;
-    // const std::unique_ptr<KWin::GLShader>& Bind(QMatrix4x4 mvp, KWin::EffectWindow *w) const;
-    void Unbind() const;
-    std::unique_ptr<KWin::GLShader> &GetShader() { return m_shader; }
+  bool IsValid() const;
+  const std::unique_ptr<KWin::GLShader> &Bind(KWin::EffectWindow *w) const;
+  // const std::unique_ptr<KWin::GLShader>& Bind(QMatrix4x4 mvp,
+  // KWin::EffectWindow *w) const;
+  void Unbind() const;
+  std::unique_ptr<KWin::GLShader> &GetShader() { return m_shader; }
 
 private:
-    std::unique_ptr<KWin::GLShader> m_shader;
-    KWin::ShaderManager *m_manager;
+  std::unique_ptr<KWin::GLShader> m_shader;
+  KWin::ShaderManager *m_manager;
 
-    /**
-     * \brief Used only for its `palette()` function which holds the currently active highlight colors.
-     */
-    std::shared_ptr<QWidget> m_widget;
+  /**
+   * \brief Used only for its `palette()` function which holds the currently
+   * active highlight colors.
+   */
+  std::shared_ptr<QWidget> m_widget;
 
-    
-    int m_shader_targetColor_locations[MAX_SETS];
-    int m_shader_targetAlpha_locations[MAX_SETS];
-    int m_shader_numberOfColors_location;
+  int m_shader_targetColor_locations[MAX_SETS];
+  int m_shader_targetAlpha_locations[MAX_SETS];
+  int m_shader_numberOfColors_location;
 };
 
 #endif // KWIN4_COLORTRANSLUCENCY_CONFIG_SHADERMANAGER_H

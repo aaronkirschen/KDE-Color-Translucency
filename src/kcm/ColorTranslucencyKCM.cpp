@@ -180,7 +180,7 @@ void ColorTranslucencyKCM::updateWindows() {
       QDBusReply<QString> reply = interface.call("get_window_titles");
       if (reply.isValid())
         windowList = reply.value().split("\n");
-      qInfo() << "ColorTranslucencyKCM::updateWindows: windowList:"
+      qDebug() << "ColorTranslucencyKCM::updateWindows: windowList:"
               << windowList;
     }
   }
@@ -190,7 +190,7 @@ void ColorTranslucencyKCM::updateWindows() {
     if (!w.isEmpty()) {
       QListWidgetItem *item = new QListWidgetItem(w);
       ui->currentWindowList->addItem(item);
-      qInfo() << "ColorTranslucencyKCM::updateWindows: adding window:" << w;
+      qDebug() << "ColorTranslucencyKCM::updateWindows: adding window:" << w;
 
       // Reselect the previously selected item if it exists in the new list
       if (w == currentlySelectedText) {
@@ -201,7 +201,7 @@ void ColorTranslucencyKCM::updateWindows() {
 }
 
 void ColorTranslucencyKCM::save() {
-  qInfo() << "ColorTranslucencyKCM::save: saving config";
+  qDebug() << "ColorTranslucencyKCM::save: saving config";
   QStringList inclusions, exclusions;
   for (int i = 0; i < ui->InclusionList->count(); ++i)
     inclusions.push_back(ui->InclusionList->item(i)->text());
@@ -223,14 +223,14 @@ void ColorTranslucencyKCM::load() {
   ColorTranslucencyConfig::self()->load();
   ui->InclusionList->addItems(ColorTranslucencyConfig::inclusionList());
   ui->ExclusionList->addItems(ColorTranslucencyConfig::exclusionList());
-  qInfo() << "ColorTranslucencyKCM::load: loading config, inclusions:"
+  qDebug() << "ColorTranslucencyKCM::load: loading config, inclusions:"
           << ColorTranslucencyConfig::inclusionList()
           << ", exclusions: " << ColorTranslucencyConfig::exclusionList();
   updateWindows();
 }
 
 void ColorTranslucencyKCM::defaults() {
-  qInfo() << "ColorTranslucencyKCM::defaults: reset to defaults";
+  qDebug() << "ColorTranslucencyKCM::defaults: reset to defaults";
   KCModule::defaults();
   ColorTranslucencyConfig::self()->setDefaults();
 

@@ -65,10 +65,6 @@ ColorTranslucencyEffect::ColorTranslucencyEffect()
             &ColorTranslucencyEffect::windowAdded);
     connect(KWin::effects, &KWin::EffectsHandler::windowDeleted, this,
             &ColorTranslucencyEffect::windowRemoved);
-#if QT_VERSION_MAJOR < 6
-    connect(KWin::effects, &KWin::EffectsHandler::windowFrameGeometryChanged,
-            this, &ColorTranslucencyEffect::windowResized);
-#endif
   }
 }
 

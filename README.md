@@ -12,10 +12,15 @@ This KDE Desktop Effect allows for rendering a specific color as transparent wit
 
 The Color Translucency Effect is an enhancement for KDE Plasma desktops, enabling the rendering of specific colors as transparent within the contents of a window.
 
+## Known issues
+
+* not all colors are working in Plasma 6. Solid black works, others you may need to try. I still need to figure out why this is.
 
 ## Installation
 
 Before installation, ensure you have installed the necessary dependencies. The following are based on the original KDE Rounded Corners project and may not be exhaustive.
+
+TODO: Update dependency lists
 
 For Ubuntu/Debian based systems:
 
@@ -53,13 +58,13 @@ make
 sudo make install
 ```
 
-To activate the new effect, restart KWin:
+To activate the new effect if you are on X11, restart KWin:
 
 ```bash
 kwin_x11 --replace &
 ```
 
-Alternatively, you can log out and back in.
+Alternatively, or if you are on Wayland, you can log out and back in.
 
 
 ## Uninstallation
@@ -85,7 +90,7 @@ For building from the source, ensure all dependencies are installed:
 ```bash
 mkdir build
 cd build
-cmake ..
+cmake .. --install-prefix /usr
 make
 ```
 

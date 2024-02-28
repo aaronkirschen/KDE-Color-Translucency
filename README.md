@@ -49,7 +49,7 @@ xbps-install git cmake make qt5-tools-devel extra-cmake-modules qt5-x11extras-de
 Then compile and install the effect:
 
 ```bash
-git clone https://github.com/aaronkirschen/KDE-Color-Translucency.git
+git clone -b plasma6 https://github.com/aaronkirschen/KDE-Color-Translucency.git
 cd KDE-Color-Translucency
 mkdir build
 cd build

@@ -17,6 +17,8 @@
 
 precision mediump float;
 
+#include "colormanagement.glsl"
+
 uniform sampler2D sampler;
 
 #define MAX_SETS 10 // Maximum of 10 colors
@@ -27,17 +29,17 @@ uniform int numberOfColors;
 varying vec2 texcoord0;
 
 void main() {
+    vec4 tex = texture2D(sampler, texcoord0);
 
-  vec4 tex = texture2D(sampler, texcoord0);
-
-  for (int i = 0; i < numberOfColors; ++i) {
-
-    if (tex.rgb == targetColor[i].rgb) {
-      tex.a = targetAlpha[i]; // Set the alpha to the matched target alpha
-      break;                  // Exit the loop early since we found a match
+    for (int i = 0; i < numberOfColors; ++i) {
+        if (tex.rgb == targetColor[i].rgb) {
+            tex.a = targetAlpha[i]; // Set the alpha to the matched target alpha
+            break;                  // Exit the loop early since we found a match
+        }
     }
-  }
 
-  tex.rgb *= tex.a;   // Premultiply color by alpha
-  gl_FragColor = tex; // Set the final color of the pixel
+    tex.rgb *= tex.a;   // Premultiply color by alpha
+
+    tex = sourceEncodingToNitsInDestinationColorspace(tex); // Apply HDR color management
+    gl_FragColor = nitsToDestinationEncoding(tex); // Set the final color of the pixel
 }

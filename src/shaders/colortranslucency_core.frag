@@ -17,6 +17,8 @@
 
 #version 140
 
+#include "colormanagement.glsl"
+
 #define MAX_SETS 10
 
 uniform sampler2D sampler;
@@ -39,5 +41,7 @@ void main() {
   }
 
   tex.rgb *= tex.a;
-  fragColor = tex;
+
+  tex = sourceEncodingToNitsInDestinationColorspace(tex);
+  fragColor = nitsToDestinationEncoding(tex);
 }

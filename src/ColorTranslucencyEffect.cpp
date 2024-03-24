@@ -232,19 +232,8 @@ void ColorTranslucencyEffect::drawWindow(KWin::EffectWindow *w, int mask,
 }
 
 QString
-ColorTranslucencyEffect::get_window_title(const KWin::EffectWindow *w) const {
-  auto fullClass = w->windowClass();
-
-  QStringList parts = fullClass.split(' ');
-
-  QString windowTitle;
-  if (parts.size() > 1 && parts[0] == parts[1]) {
-    windowTitle = parts[0];
-  } else {
-    windowTitle = fullClass;
-  }
-
-  return windowTitle;
+ColorTranslucencyEffect::get_window_title(const KWin::EffectWindow *w) {
+    return w->windowClass();
 }
 
 bool ColorTranslucencyEffect::hasEffect(const KWin::EffectWindow *w) const {

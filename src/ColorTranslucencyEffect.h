@@ -63,7 +63,7 @@ protected Q_SLOTS:
   void windowRemoved(KWin::EffectWindow *window);
 
 public:
-  QString get_window_title(const KWin::EffectWindow *w) const;
+  static QString get_window_title(const KWin::EffectWindow *w) ;
   static QVector<QColor> getActiveColors();
   static QVector<int> getActiveAlphas();
 

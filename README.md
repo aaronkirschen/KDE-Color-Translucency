@@ -15,7 +15,6 @@ The Color Translucency Effect is an enhancement for KDE Plasma desktops, enablin
 ## Known issues
 
 * not all colors are working in Plasma 6. Solid black works, others you may need to try. I still need to figure out why this is.
-* windows become very dark when effect is applied and they are on a screen with HDR enabled.
 
 ## Installation
 

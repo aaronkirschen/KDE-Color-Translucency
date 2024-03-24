@@ -19,11 +19,8 @@
 #define KWIN4_COLORTRANSLUCENCY_CONFIG_SHADERMANAGER_H
 
 #include <qconfig.h>
-#if QT_VERSION_MAJOR >= 6
+
 #include <effect/effect.h>
-#else
-#include <kwineffects.h>
-#endif
 
 namespace KWin {
 class GLShader;

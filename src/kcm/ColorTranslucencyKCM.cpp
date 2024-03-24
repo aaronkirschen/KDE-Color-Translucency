@@ -22,19 +22,12 @@
 #include <QDialog>
 #include <QListWidgetItem>
 
-#if (QT_VERSION_MAJOR >= 6)
 ColorTranslucencyKCM::ColorTranslucencyKCM(QObject *parent,
                                            const KPluginMetaData &args)
     : KCModule(parent, args), ui(new Ui::Form) {
   ui->setupUi(widget());
   addConfig(ColorTranslucencyConfig::self(), widget());
-#else
-ColorTranslucencyKCM::ColorTranslucencyKCM(QWidget *parent,
-                                           const QVariantList &args)
-    : KCModule(parent, args), ui(new Ui::Form) {
-  ui->setupUi(this);
-  addConfig(ColorTranslucencyConfig::self(), this);
-#endif
+
 
   connect(ui->kcfg_TargetColor_1, &KColorButton::changed, this,
           &ColorTranslucencyKCM::updateColor);

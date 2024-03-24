@@ -20,11 +20,7 @@
 #include <QFile>
 #include <QWidget>
 
-#if QT_VERSION_MAJOR >= 6
 #include <opengl/glutils.h>
-#else
-#include <kwinglutils.h>
-#endif
 
 ColorTranslucencyShader::ColorTranslucencyShader()
     : m_manager(KWin::ShaderManager::instance()), m_widget(new QWidget)

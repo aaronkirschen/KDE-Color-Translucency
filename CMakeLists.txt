@@ -4,8 +4,8 @@ project(kwin4_effect_colortranslucency)
 # Project modified by Aaron Kirschen in 2024
 
 set(KF_MIN_VERSION "5.78")
-set(QT_MIN_VERSION "5.15")
-set(QT_MAJOR_VERSION 5)
+set(QT_MIN_VERSION "6.4.0")
+set(QT_MAJOR_VERSION 6)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -22,10 +22,6 @@ set(CMAKE_MODULE_PATH
         ${ECM_MODULE_PATH}
         ${ECM_KDE_MODULE_DIR}
 )
-if(ECM_VERSION VERSION_GREATER "5.200.0")
-    set(QT_MIN_VERSION "6.4.0")
-    set(QT_MAJOR_VERSION 6)
-endif()
 
 include(FeatureSummary)
 include(KDEInstallDirs)
@@ -36,22 +32,15 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
         ConfigWidgets
 )
-if(${QT_MAJOR_VERSION} EQUAL 6)
-    find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
-            KCMUtils
-    )
 
-    find_package(KWin REQUIRED COMPONENTS
-            kwineffects
-    )
-    set(KWIN_EFFECT_INCLUDE_FILE "/usr/include/kwin/effect/effect.h")
-else()
-    find_package(KWinEffects REQUIRED COMPONENTS
-            kwineffects
-            kwinglutils
-    )
-    set(KWIN_EFFECT_INCLUDE_FILE "/usr/include/kwineffects.h")
-endif ()
+find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
+        KCMUtils
+)
+
+find_package(KWin REQUIRED COMPONENTS
+        kwineffects
+)
+set(KWIN_EFFECT_INCLUDE_FILE "/usr/include/kwin/effect/effect.h")
 
 find_package(epoxy REQUIRED)
 find_package(XCB REQUIRED COMPONENTS XCB)

@@ -14,17 +14,9 @@ target_link_libraries(kwin4_effect_colortranslucency
         KF${QT_MAJOR_VERSION}::ConfigGui
 )
 
-
-if(${QT_MAJOR_VERSION} EQUAL 6)
-    target_link_libraries(kwin4_effect_colortranslucency
-            KWin::kwin
-            Qt${QT_MAJOR_VERSION}::CorePrivate
-    )
-else()
-    target_link_libraries(kwin4_effect_colortranslucency
-            KWinEffects::kwineffects
-            KWinEffects::kwinglutils
-    )
-endif()
+target_link_libraries(kwin4_effect_colortranslucency
+        KWin::kwin
+        Qt${QT_MAJOR_VERSION}::CorePrivate
+)
 
 install(DIRECTORY shaders DESTINATION ${KDE_INSTALL_DATADIR}/kwin)

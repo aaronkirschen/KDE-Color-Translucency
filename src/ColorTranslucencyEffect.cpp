@@ -23,14 +23,10 @@
 #include <QDBusError>
 #include <QtDBus/QDBusConnection>
 
-#if QT_VERSION_MAJOR >= 6
 #include <core/output.h>
 #include <core/renderviewport.h>
 #include <effect/effecthandler.h>
 #include <opengl/glutils.h>
-#else
-#include <kwinglutils.h>
-#endif
 
 QVector<QColor> ColorTranslucencyEffect::m_activeColors;
 QVector<int> ColorTranslucencyEffect::m_activeAlphas;
@@ -41,7 +37,6 @@ ColorTranslucencyEffect::ColorTranslucencyEffect()
     : KWin::DeformEffect()
 #endif
 {
-
   reconfigure(ReconfigureAll);
 
   auto connection = QDBusConnection::sessionBus();
